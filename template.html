@@ -41,7 +41,6 @@
         .border-graphite { border-color: #212121 !important; }
         .ghost-hover:hover { background-color: rgba(255, 255, 255, 0.2); transition: background-color 0.2s ease; }
         
-        /* Efek Fading Halus Menggunakan Mask di Atas-Bawah atau Kiri-Kanan */
         .carousel-container {
             position: relative;
             width: 100%;
@@ -61,7 +60,6 @@
         .chart-btn { border-bottom: 1px solid transparent; }
         .chart-btn.active { color: #ffffff; border-color: #ffffff; }
         
-        /* Mengatur style khusus paragraf keluaran Markdown */
         .markdown-narrative p { font-family: Inter; color: #ffffff; font-weight: 300; font-size: 16px; line-height: 1.625; margin-bottom: 1rem; }
     </style>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -74,8 +72,8 @@
         <div class="flex flex-col gap-8">
             <div>
                 <h1 class="font-body-md text-[20px] text-pure-white mb-2 font-normal">Zaky Islam Al Hafidz</h1>
-                <p class="font-body-md text-pure-white font-light text-[14px] mb-2">Informatics Student &amp; Entrepreneur</p>
-                <p class="font-body-md text-medium-grey font-light text-[14px]">Mahasiswa Informatika yang berdedikasi pada inovasi teknologi dan pengembangan solusi sistem yang efisien.</p>
+                <p class="font-body-md text-pure-white font-light text-[14px] mb-2">Computer Science Student</p>
+                <p class="font-body-md text-medium-grey font-light text-[14px]">I Like build, create, and solve problems with code.</p>
             </div>
             <div>
                 <h2 class="font-label-sm text-label-sm text-pure-white uppercase tracking-widest mb-4">Tech Stack</h2>
@@ -116,7 +114,7 @@
             {{ narrative_html }}
         </section>
 
-        <!-- SECTION ACADEMIC JOURNEY (FIXED OVERLAPPING ON MOBILE) -->
+        
         <section class="flex flex-col gap-8 w-full mt-0" id="academic">
             <div class="flex items-center gap-4 border-b border-outline-variant pb-4">
                 <h2 class="font-headline-lg-mobile text-[24px] text-pure-white font-normal uppercase tracking-wider">Academic Journey</h2>
@@ -126,13 +124,13 @@
                 <div class="relative">
                     <div class="absolute -left-[28.5px] top-2 w-2 h-2 {% if loop.first %}bg-pure-white{% else %}border border-outline-variant bg-background{% endif %} rounded-full"></div>
                     <div class="flex flex-col gap-1 w-full">
-                        <!-- Menggunakan flex-col pada mobile dan flex-row pada layar desktop agar tidak tumpang tindih -->
+                        
                         <div class="flex flex-col sm:flex-row items-start justify-between w-full mb-1 gap-2 sm:gap-4">
                             <div class="flex-1 pr-0 lg:pr-32">
                                 <h3 class="font-body-md text-pure-white font-bold text-lg mb-1">{{ edu.institution }}</h3>
                                 <p class="font-body-md text-medium-grey font-light text-[14px] text-justify leading-relaxed">{{ edu.description }}</p>
                             </div>
-                            <!-- Menghilangkan paksaan shrink agar penanggalan terdorong ke baris baru secara alami di HP -->
+                            
                             <span class="font-label-sm text-medium-grey uppercase tracking-widest sm:shrink-0 pt-1 text-[11px] sm:text-[12px]">{{ edu.period }}</span>
                         </div>
                     </div>
@@ -141,7 +139,7 @@
             </div>
         </section>
 
-        <!-- SECTION EXPERIENCE (FIXED OVERLAPPING ON MOBILE) -->
+        
         <section class="flex flex-col gap-8 w-full" id="experience">
             <div class="flex items-center gap-4 border-b border-outline-variant pb-4">
                 <h2 class="font-headline-lg-mobile text-[24px] text-pure-white font-normal uppercase tracking-wider">Experience</h2>
@@ -151,7 +149,7 @@
                 <div class="relative">
                     <div class="absolute -left-[28.5px] top-2 w-2 h-2 border border-outline-variant bg-background rounded-full hover:bg-pure-white transition-colors duration-300"></div>
                     <div class="flex flex-col gap-1 w-full">
-                        <!-- Menggunakan flex-col pada mobile dan flex-row pada layar desktop agar tidak tumpang tindih -->
+                        
                         <div class="flex flex-col sm:flex-row items-start justify-between w-full mb-1 gap-2 sm:gap-4">
                             <div class="flex-1 pr-0 lg:pr-32">
                                 <h3 class="font-body-md text-pure-white font-bold text-lg">{{ exp.role }}</h3>
@@ -166,17 +164,17 @@
             </div>
         </section>
 
-        <!-- SECTION SELECTED PROJECTS (SMOOTH INFINITE CAROUSEL WITH FADING MASK EFFECT) -->
+        
         <section class="flex flex-col gap-8 w-[calc(100%+3rem)] lg:w-[calc(100%+8rem)] -ml-6 lg:-ml-16 overflow-hidden pb-12" id="projects">
             <div class="flex items-center gap-4 border-b border-outline-variant pb-4 ml-6 lg:ml-16 mr-6 lg:mr-16">
                 <h2 class="font-headline-lg-mobile text-[24px] text-pure-white font-normal uppercase tracking-wider">Selected Projects</h2>
             </div>
             
-            <!-- Ditambahkan class .carousel-container untuk menangani fading mask -->
+            
             <div class="carousel-container no-scrollbar pt-4">
                 <div class="carousel-track">
                     
-                    <!-- DERETAN KARTU UTAMA (Asli) -->
+                    
                     {% for project in projects %}
                     <div class="w-[300px] shrink-0 border border-outline-variant bg-background p-8 flex flex-col gap-6 mr-6">
                         <div class="flex flex-col justify-between h-full">
@@ -194,7 +192,7 @@
                     </div>
                     {% endfor %}
                     
-                    <!-- DERETAN KARTU DUPLIKASI (Menghilangkan blank spot saat animasi berulang) -->
+                    
                     {% for project in projects %}
                     <div aria-hidden="true" class="w-[300px] shrink-0 border border-outline-variant bg-background p-8 flex flex-col gap-6 mr-6">
                         <div class="flex flex-col justify-between h-full">
@@ -216,7 +214,7 @@
             </div>
         </section>
 
-        <!-- SECTION GITHUB ACTIVITY -->
+        
         <section class="flex flex-col gap-8 w-full" id="github-activity">
             <div class="flex items-center justify-between border-b border-outline-variant pb-4">
                 <h2 class="font-headline-lg-mobile text-[24px] text-pure-white font-normal uppercase tracking-wider">Github Contributions</h2>
@@ -264,7 +262,7 @@
         </section>
 
         <footer class="w-full border-t border-outline-variant pt-8 mt-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-            <span class="font-label-sm text-label-sm text-medium-grey uppercase tracking-widest">© 2026 ZAKY ISLAM AL HAFIDZ. ALL RIGHTS RESERVED.</span>
+            <span class="font-label-sm text-label-sm text-medium-grey uppercase tracking-widest">© 2026. All Rights Reserved.</span>
         </footer>
     </main>
 </div>
