@@ -31,7 +31,7 @@ jobs:
     - name: Run Build Script
       env:
         PORTFOLIO_GRAPHQL_TOKEN: ${{ secrets.PORTFOLIO_GRAPHQL_TOKEN }}
-        GITHUB_USERNAME: "zakyislam"
+        GITHUB_USERNAME: "voltonics"
       run: python build.py
 
     - name: Deploy to GitHub Pages
