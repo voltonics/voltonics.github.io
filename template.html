@@ -40,9 +40,20 @@
         .text-medium-grey { color: #757575 !important; }
         .border-graphite { border-color: #212121 !important; }
         .ghost-hover:hover { background-color: rgba(255, 255, 255, 0.2); transition: background-color 0.2s ease; }
-        .carousel-track {display: flex;width: max-content;animation: scroll 25s linear infinite;}
+        
+        /* Efek Fading Halus Menggunakan Mask di Atas-Bawah atau Kiri-Kanan */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+            mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+        }
+
+        .carousel-track { display: flex; width: max-content; animation: scroll 25s linear infinite; }
         .carousel-track:hover { animation-play-state: paused; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         .layout-container { display: flex; flex-direction: column; width: 100%; min-height: 100vh; }
@@ -105,6 +116,7 @@
             {{ narrative_html }}
         </section>
 
+        <!-- SECTION ACADEMIC JOURNEY (FIXED OVERLAPPING ON MOBILE) -->
         <section class="flex flex-col gap-8 w-full mt-0" id="academic">
             <div class="flex items-center gap-4 border-b border-outline-variant pb-4">
                 <h2 class="font-headline-lg-mobile text-[24px] text-pure-white font-normal uppercase tracking-wider">Academic Journey</h2>
@@ -114,12 +126,14 @@
                 <div class="relative">
                     <div class="absolute -left-[28.5px] top-2 w-2 h-2 {% if loop.first %}bg-pure-white{% else %}border border-outline-variant bg-background{% endif %} rounded-full"></div>
                     <div class="flex flex-col gap-1 w-full">
-                        <div class="flex items-start justify-between w-full mb-1">
-                            <div class="flex-1 pr-8 lg:pr-32">
+                        <!-- Menggunakan flex-col pada mobile dan flex-row pada layar desktop agar tidak tumpang tindih -->
+                        <div class="flex flex-col sm:flex-row items-start justify-between w-full mb-1 gap-2 sm:gap-4">
+                            <div class="flex-1 pr-0 lg:pr-32">
                                 <h3 class="font-body-md text-pure-white font-bold text-lg mb-1">{{ edu.institution }}</h3>
                                 <p class="font-body-md text-medium-grey font-light text-[14px] text-justify leading-relaxed">{{ edu.description }}</p>
                             </div>
-                            <span class="font-label-sm text-medium-grey uppercase tracking-widest shrink-0 pt-1">{{ edu.period }}</span>
+                            <!-- Menghilangkan paksaan shrink agar penanggalan terdorong ke baris baru secara alami di HP -->
+                            <span class="font-label-sm text-medium-grey uppercase tracking-widest sm:shrink-0 pt-1 text-[11px] sm:text-[12px]">{{ edu.period }}</span>
                         </div>
                     </div>
                 </div>
@@ -127,6 +141,7 @@
             </div>
         </section>
 
+        <!-- SECTION EXPERIENCE (FIXED OVERLAPPING ON MOBILE) -->
         <section class="flex flex-col gap-8 w-full" id="experience">
             <div class="flex items-center gap-4 border-b border-outline-variant pb-4">
                 <h2 class="font-headline-lg-mobile text-[24px] text-pure-white font-normal uppercase tracking-wider">Experience</h2>
@@ -136,13 +151,14 @@
                 <div class="relative">
                     <div class="absolute -left-[28.5px] top-2 w-2 h-2 border border-outline-variant bg-background rounded-full hover:bg-pure-white transition-colors duration-300"></div>
                     <div class="flex flex-col gap-1 w-full">
-                        <div class="flex items-start justify-between w-full mb-1">
-                            <div class="flex-1 pr-8 lg:pr-32">
+                        <!-- Menggunakan flex-col pada mobile dan flex-row pada layar desktop agar tidak tumpang tindih -->
+                        <div class="flex flex-col sm:flex-row items-start justify-between w-full mb-1 gap-2 sm:gap-4">
+                            <div class="flex-1 pr-0 lg:pr-32">
                                 <h3 class="font-body-md text-pure-white font-bold text-lg">{{ exp.role }}</h3>
                                 <p class="font-body-md text-pure-white font-normal mb-1">{{ exp.company }}</p>
                                 <p class="font-body-md text-medium-grey font-light text-[14px] text-justify leading-relaxed">{{ exp.description }}</p>
                             </div>
-                            <span class="font-label-sm text-medium-grey uppercase tracking-widest shrink-0 pt-1">{{ exp.period }}</span>
+                            <span class="font-label-sm text-medium-grey uppercase tracking-widest sm:shrink-0 pt-1 text-[11px] sm:text-[12px]">{{ exp.period }}</span>
                         </div>
                     </div>
                 </div>
@@ -150,14 +166,17 @@
             </div>
         </section>
 
+        <!-- SECTION SELECTED PROJECTS (SMOOTH INFINITE CAROUSEL WITH FADING MASK EFFECT) -->
         <section class="flex flex-col gap-8 w-[calc(100%+3rem)] lg:w-[calc(100%+8rem)] -ml-6 lg:-ml-16 overflow-hidden pb-12" id="projects">
             <div class="flex items-center gap-4 border-b border-outline-variant pb-4 ml-6 lg:ml-16 mr-6 lg:mr-16">
                 <h2 class="font-headline-lg-mobile text-[24px] text-pure-white font-normal uppercase tracking-wider">Selected Projects</h2>
             </div>
             
-            <div class="relative w-full overflow-hidden no-scrollbar pt-4">
+            <!-- Ditambahkan class .carousel-container untuk menangani fading mask -->
+            <div class="carousel-container no-scrollbar pt-4">
                 <div class="carousel-track">
                     
+                    <!-- DERETAN KARTU UTAMA (Asli) -->
                     {% for project in projects %}
                     <div class="w-[300px] shrink-0 border border-outline-variant bg-background p-8 flex flex-col gap-6 mr-6">
                         <div class="flex flex-col justify-between h-full">
@@ -166,7 +185,7 @@
                                 <p class="font-label-sm text-label-sm text-medium-grey uppercase tracking-widest">{{ project.category }}</p>
                             </div>
                             <div class="flex justify-end mt-4">
-                                <a class="flex items-center gap-2 border border-outline-variant px-3 py-1.5 text-pure-white hover:bg-pure-white hover:text-background transition-colors duration-200" href="{{ project.link }}">
+                                <a class="flex items-center gap-2 border border-outline-variant px-3 py-1.5 text-medium-grey hover:text-pure-white hover:border-pure-white transition-all duration-300 ease-in-out transform hover:-translate-y-1 bg-transparent" href="{{ project.link }}">
                                     <span class="font-label-sm text-[10px] uppercase tracking-widest">View</span>
                                     <span class="material-symbols-outlined text-sm">north_east</span>
                                 </a>
@@ -175,6 +194,7 @@
                     </div>
                     {% endfor %}
                     
+                    <!-- DERETAN KARTU DUPLIKASI (Menghilangkan blank spot saat animasi berulang) -->
                     {% for project in projects %}
                     <div aria-hidden="true" class="w-[300px] shrink-0 border border-outline-variant bg-background p-8 flex flex-col gap-6 mr-6">
                         <div class="flex flex-col justify-between h-full">
@@ -183,7 +203,7 @@
                                 <p class="font-label-sm text-label-sm text-medium-grey uppercase tracking-widest">{{ project.category }}</p>
                             </div>
                             <div class="flex justify-end mt-4">
-                                <a class="flex items-center gap-2 border border-outline-variant px-3 py-1.5 text-pure-white hover:bg-pure-white hover:text-background transition-colors duration-200" href="{{ project.link }}">
+                                <a class="flex items-center gap-2 border border-outline-variant px-3 py-1.5 text-medium-grey hover:text-pure-white hover:border-pure-white transition-all duration-300 ease-in-out transform hover:-translate-y-1 bg-transparent" href="{{ project.link }}">
                                     <span class="font-label-sm text-[10px] uppercase tracking-widest">View</span>
                                     <span class="material-symbols-outlined text-sm">north_east</span>
                                 </a>
@@ -196,7 +216,7 @@
             </div>
         </section>
 
-        <!-- SECTION GITHUB ACTIVITY (KONTRIBUSI GITHUB)[cite: 1, 4] -->
+        <!-- SECTION GITHUB ACTIVITY -->
         <section class="flex flex-col gap-8 w-full" id="github-activity">
             <div class="flex items-center justify-between border-b border-outline-variant pb-4">
                 <h2 class="font-headline-lg-mobile text-[24px] text-pure-white font-normal uppercase tracking-wider">Github Contributions</h2>
@@ -213,6 +233,7 @@
                 </div>
                 <div class="w-full overflow-hidden no-scrollbar h-[200px] relative">
                     <div class="absolute inset-0 flex flex-col justify-between pointer-events-none">
+                        <div class="w-full h-px bg-outline-variant opacity-50"></div>
                         <div class="w-full h-px bg-outline-variant opacity-50"></div>
                         <div class="w-full h-px bg-outline-variant opacity-50"></div>
                         <div class="w-full h-px bg-outline-variant opacity-50"></div>
@@ -273,7 +294,7 @@
 
         sections.forEach(section => { if(section.id) observer.observe(section); });
 
-        // OBJEK DATA GRAFIK YANG DIISI SECARA DINAMIS OLEH JINJA DARI PROSES BUILD PYTHON[cite: 4]
+        // OBJEK DATA GRAFIK YANG DIISI SECARA DINAMIS OLEH JINJA DARI PROSES BUILD PYTHON
         const chartData = {
             'week': {
                 poly: "{{ chart_context['week']['poly'] }}",
