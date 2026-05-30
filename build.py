@@ -93,6 +93,7 @@ def generate_chart_data(contributions, days_range, width=1000, height=200):
     
     for dt in dates_list:
         date_str = dt.strftime('%Y-%m-%d')
+        # Ambil data kontribusi asli per hari
         count = contributions.get(date_str, 0)
         total_contributions += count
         filtered_data.append((dt, count))
@@ -101,7 +102,9 @@ def generate_chart_data(contributions, days_range, width=1000, height=200):
     if num_points < 2:
         return {"poly": "", "line": "", "points": [], "labels": [], "count": "0", "desc": "no data"}
 
+    # Cari kontribusi tertinggi dalam satu hari untuk skala grafik
     max_val = max([item[1] for item in filtered_data])
+    # Jika max_val terlalu kecil atau 0, set ke minimal 5 biar gak pembagian dengan nol
     max_val = max_val if max_val > 0 else 5
     
     points = []
@@ -109,6 +112,7 @@ def generate_chart_data(contributions, days_range, width=1000, height=200):
     
     for idx, (dt, count) in enumerate(filtered_data):
         x = idx * x_step
+        # PERBAIKAN SKALA: Membagi berdasarkan nilai maksimum harian, bukan total akumulatif
         y = height - 20 - ((count / max_val) * (height - 40))
         points.append([round(x, 1), round(y, 1)])
         
@@ -129,6 +133,7 @@ def generate_chart_data(contributions, days_range, width=1000, height=200):
         desc_text = "in the last year"
         
     return {
+        # Menampilkan total kontribusi akumulatif yang bener di teks
         "count": f"{total_contributions} contributions",
         "desc": desc_text,
         "poly": poly_str,
