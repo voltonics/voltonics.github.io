@@ -292,7 +292,6 @@
 
         sections.forEach(section => { if(section.id) observer.observe(section); });
 
-        // OBJEK DATA GRAFIK YANG DIISI SECARA DINAMIS OLEH JINJA DARI PROSES BUILD PYTHON
         const chartData = {
             'week': {
                 poly: "{{ chart_context['week']['poly'] }}",
@@ -333,12 +332,10 @@
                 
                 const period = e.target.getAttribute('data-period');
                 const data = chartData[period];
-                
-                // Perbarui nilai text konter kontribusi secara interaktif
+
                 chartCount.textContent = data.count;
                 chartDesc.textContent = data.desc;
-                
-                // Susun dan Render elemen grafik SVG baru secara instan
+
                 let svgContent = `<polygon fill="url(#chart-gradient)" points="${data.poly}"></polygon>
                                   <polyline fill="none" points="${data.line}" stroke="#ffffff" stroke-width="2" vector-effect="non-scaling-stroke"></polyline>`;
                 
@@ -348,7 +345,6 @@
                 
                 chartElements.innerHTML = svgContent;
                 
-                // Render label teks sumbu X yang sesuai
                 chartLabels.innerHTML = data.labels.map(label => 
                     `<span class="font-label-sm text-medium-grey text-[10px] uppercase tracking-widest">${label}</span>`
                 ).join('');

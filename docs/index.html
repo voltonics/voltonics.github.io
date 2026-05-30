@@ -222,6 +222,21 @@
                         </div>
                     </div>
                     
+                    <div class="w-[300px] shrink-0 border border-outline-variant bg-background p-8 flex flex-col gap-6 mr-6">
+                        <div class="flex flex-col justify-between h-full">
+                            <div>
+                                <h3 class="font-body-md text-body-md text-pure-white font-medium text-xl mb-2 underline-offset-4">ITechno Website Archive</h3>
+                                <p class="font-label-sm text-label-sm text-medium-grey uppercase tracking-widest">Frontend Engineer</p>
+                            </div>
+                            <div class="flex justify-end mt-4">
+                                <a class="flex items-center gap-2 border border-outline-variant px-3 py-1.5 text-medium-grey hover:text-pure-white hover:border-pure-white transition-all duration-300 ease-in-out transform hover:-translate-y-1 bg-transparent" href=""https://github.com/the-itechno/the-itechno.github.io"">
+                                    <span class="font-label-sm text-[10px] uppercase tracking-widest">View</span>
+                                    <span class="material-symbols-outlined text-sm">north_east</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
                     
                     
                     
@@ -248,6 +263,21 @@
                             </div>
                             <div class="flex justify-end mt-4">
                                 <a class="flex items-center gap-2 border border-outline-variant px-3 py-1.5 text-medium-grey hover:text-pure-white hover:border-pure-white transition-all duration-300 ease-in-out transform hover:-translate-y-1 bg-transparent" href=""#"">
+                                    <span class="font-label-sm text-[10px] uppercase tracking-widest">View</span>
+                                    <span class="material-symbols-outlined text-sm">north_east</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div aria-hidden="true" class="w-[300px] shrink-0 border border-outline-variant bg-background p-8 flex flex-col gap-6 mr-6">
+                        <div class="flex flex-col justify-between h-full">
+                            <div>
+                                <h3 class="font-body-md text-body-md text-pure-white font-medium text-xl mb-2 underline-offset-4">ITechno Website Archive</h3>
+                                <p class="font-label-sm text-label-sm text-medium-grey uppercase tracking-widest">Frontend Engineer</p>
+                            </div>
+                            <div class="flex justify-end mt-4">
+                                <a class="flex items-center gap-2 border border-outline-variant px-3 py-1.5 text-medium-grey hover:text-pure-white hover:border-pure-white transition-all duration-300 ease-in-out transform hover:-translate-y-1 bg-transparent" href=""https://github.com/the-itechno/the-itechno.github.io"">
                                     <span class="font-label-sm text-[10px] uppercase tracking-widest">View</span>
                                     <span class="material-symbols-outlined text-sm">north_east</span>
                                 </a>
@@ -1074,7 +1104,6 @@
 
         sections.forEach(section => { if(section.id) observer.observe(section); });
 
-        // OBJEK DATA GRAFIK YANG DIISI SECARA DINAMIS OLEH JINJA DARI PROSES BUILD PYTHON
         const chartData = {
             'week': {
                 poly: "0,200 0.0,20.0 166.7,46.7 333.3,73.3 500.0,100.0 666.7,126.7 833.3,153.3 1000.0,180.0 1000,200",
@@ -1115,12 +1144,10 @@
                 
                 const period = e.target.getAttribute('data-period');
                 const data = chartData[period];
-                
-                // Perbarui nilai text konter kontribusi secara interaktif
+
                 chartCount.textContent = data.count;
                 chartDesc.textContent = data.desc;
-                
-                // Susun dan Render elemen grafik SVG baru secara instan
+
                 let svgContent = `<polygon fill="url(#chart-gradient)" points="${data.poly}"></polygon>
                                   <polyline fill="none" points="${data.line}" stroke="#ffffff" stroke-width="2" vector-effect="non-scaling-stroke"></polyline>`;
                 
@@ -1130,7 +1157,6 @@
                 
                 chartElements.innerHTML = svgContent;
                 
-                // Render label teks sumbu X yang sesuai
                 chartLabels.innerHTML = data.labels.map(label => 
                     `<span class="font-label-sm text-medium-grey text-[10px] uppercase tracking-widest">${label}</span>`
                 ).join('');

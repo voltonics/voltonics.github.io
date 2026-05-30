@@ -26,3 +26,7 @@ Beyond academic pursuits, I am actively engaged in entrepreneurial endeavors, se
 - title: Automated Deployment Pipeline
   category: DevOps / CI-CD
   link: "#"
+
+- title: ITechno Website Archive
+  category: Frontend Engineer
+  link: "https://github.com/the-itechno/the-itechno.github.io"
