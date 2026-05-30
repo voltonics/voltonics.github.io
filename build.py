@@ -13,11 +13,19 @@ def fetch_github_contributions(username):
     """
     Mengambil data kontribusi resmi menggunakan GitHub GraphQL API v4 dengan Token.
     """
-    # Membaca token rahasia yang diset di GitHub Secret (Sama dengan di deploy.yml)
+    # Membaca token rahasia yang diset di GitHub Secret
     token = os.getenv("PORTFOLIO_GRAPHQL_TOKEN")
     
+    # =======================================================
+    # BARIS DEBUG (Untuk mengecek apakah token masuk atau tidak)
+    # =======================================================
+    if token:
+        print(f"INFO ACTIONS: Token ditemukan! Karakter awal token: {token[:4]}***")
+    else:
+        print("INFO ACTIONS: Token TIDAK DITEMUKAN (None). Sistem terpaksa memakai data fallback.")
+    # =======================================================
+
     if not token:
-        print("Peringatan: PORTFOLIO_GRAPHQL_TOKEN tidak ditemukan di environment. Menggunakan data fallback.")
         return generate_fallback_data()
 
     url = "https://api.github.com/graphql"
@@ -42,11 +50,15 @@ def fetch_github_contributions(username):
     
     try:
         response = requests.post(url, json={"query": query, "variables": {"username": username}}, headers=headers, timeout=10)
+        
+        # Cetak status response untuk tracking error buntu
+        print(f"INFO ACTIONS: GraphQL API merespon dengan Status Code {response.status_code}")
+        
         if response.status_code == 200:
             res_data = response.json()
             
             if "errors" in res_data:
-                print(f"GraphQL Error: {res_data['errors'][0]['message']}")
+                print(f"GraphQL Error detail: {json.dumps(res_data['errors'])}")
                 return generate_fallback_data()
                 
             weeks = res_data["data"]["user"]["contributionsCollection"]["contributionCalendar"]["weeks"]
@@ -57,12 +69,12 @@ def fetch_github_contributions(username):
                     contributions[day["date"]] = day["contributionCount"]
             return contributions
         else:
-            print(f"Peringatan: API GitHub merespon dengan status {response.status_code}. Menggunakan data fallback.")
+            print(f"Peringatan: API GitHub error {response.status_code}. Detail: {response.text}")
     except Exception as e:
         print(f"Peringatan: Gagal terhubung ke GraphQL API ({e}). Menggunakan data fallback.")
         
     return generate_fallback_data()
-
+    
 def generate_fallback_data():
     today = datetime.now()
     fallback = {}
