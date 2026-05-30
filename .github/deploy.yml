@@ -3,7 +3,7 @@ name: Build and Deploy Portfolio
 on:
   push:
     branches:
-      - main  # Ganti dengan 'master' jika branch utama Anda masih menggunakan nama lama
+      - legend  # Ganti dengan 'master' jika branch utama Anda masih menggunakan nama lama
   schedule:
     - cron: '0 0 * * *' # Otomatis update otomatis setiap jam 12 malam agar grafik kontribusi segar terus
 
