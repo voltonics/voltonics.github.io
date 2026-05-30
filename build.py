@@ -6,14 +6,14 @@ import markdown
 from datetime import datetime, timedelta
 from jinja2 import Environment, FileSystemLoader
 
-# Mengambil username dari environment variable GitHub Actions, default ke "zakyislam" jika lokal
-GITHUB_USERNAME = os.getenv("GITHUB_USERNAME", "zakyislam") 
+# Mengambil username dari environment variable GitHub Actions, default ke "voltonics" jika lokal
+GITHUB_USERNAME = os.getenv("GITHUB_USERNAME", "voltonics") 
 
 def fetch_github_contributions(username):
     """
     Mengambil data kontribusi resmi menggunakan GitHub GraphQL API v4 dengan Token.
     """
-    # Membaca token rahasia yang diset di GitHub Secret
+    # Membaca token rahasia yang diset di GitHub Secret (Sama dengan di deploy.yml)
     token = os.getenv("PORTFOLIO_GRAPHQL_TOKEN")
     
     if not token:
@@ -217,7 +217,7 @@ def build_portfolio():
     with open('docs/index.html', 'w', encoding='utf-8') as f:
         f.write(output_html)
     
-    print("Sukses: docs/index.html telah berhasil dibuat secara dinamis dengan grafik aktual GitHub!")
+    print("Sukses: docs/index.html telah berhasil dibuat secara dinamis!")
 
 if __name__ == '__main__':
     build_portfolio()
