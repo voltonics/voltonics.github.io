@@ -30,3 +30,20 @@ Beyond academic pursuits, I am actively engaged in entrepreneurial endeavors, se
 - title: ITechno Website Archive
   category: Frontend Engineer
   link: "https://github.com/the-itechno/the-itechno.github.io"
+
+# Social Links
+- platform: linkedin
+  link: https://linkedin.com/in/zakyislam
+
+- platform: instagram
+  link: https://instagram.com/zakyislm
+
+- platform: github
+  link: https://github.com/voltonics
+
+- platform: envelope
+  link: mailto:email-kamu@gmail.com
+
+- platform: cv
+  link: #
+  

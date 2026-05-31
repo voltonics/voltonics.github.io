@@ -5,16 +5,13 @@ import requests
 import markdown
 from datetime import datetime, timedelta
 from jinja2 import Environment, FileSystemLoader
-
-GITHUB_USERNAME = os.getenv("GITHUB_USERNAME", "voltonics") 
-
+GITHUB_USERNAME = os.getenv("GITHUB_USERNAME", "zakyislm") 
 def fetch_github_contributions(username):
     token = os.getenv("PORTFOLIO_GRAPHQL_TOKEN")
-    
     if token:
-        print(f"INFO ACTIONS: Token ditemukan! Karakter awal token: {token[:4]}***")
+        print(f"Actions Log: token found {token[:4]}***")
     else:
-        print("INFO ACTIONS: Token TIDAK DITEMUKAN (None). Sistem terpaksa memakai data fallback.")
+        print("Actions Log: token not found. Using fallback data...")
 
     if not token:
         return generate_fallback_data()
@@ -42,13 +39,13 @@ def fetch_github_contributions(username):
     try:
         response = requests.post(url, json={"query": query, "variables": {"username": username}}, headers=headers, timeout=10)
         
-        print(f"INFO ACTIONS: GraphQL API merespon dengan Status Code {response.status_code}")
+        print(f"Actions Log: GraphQL API responded with Status Code {response.status_code}")
         
         if response.status_code == 200:
             res_data = response.json()
             
             if "errors" in res_data:
-                print(f"GraphQL Error detail: {json.dumps(res_data['errors'])}")
+                print(f"Actions Log: GraphQL Error detail: {json.dumps(res_data['errors'])}")
                 return generate_fallback_data()
                 
             weeks = res_data["data"]["user"]["contributionsCollection"]["contributionCalendar"]["weeks"]
@@ -59,9 +56,9 @@ def fetch_github_contributions(username):
                     contributions[day["date"]] = day["contributionCount"]
             return contributions
         else:
-            print(f"Peringatan: API GitHub error {response.status_code}. Detail: {response.text}")
+            print(f"Actions Log: API GitHub error {response.status_code}. Detail: {response.text}")
     except Exception as e:
-        print(f"Peringatan: Gagal terhubung ke GraphQL API ({e}). Menggunakan data fallback.")
+        print(f"Actions Log: Couldn't connect to GraphQL API ({e}). Using fallback data.")
         
     return generate_fallback_data()
     
@@ -128,7 +125,7 @@ def generate_chart_data(contributions, days_range, width=1000, height=200):
     }
 
 def parse_content_markdown(filepath):
-    content_data = {'narrative_html': '', 'academic': [], 'experience': [], 'projects': []}
+    content_data = {'narrative_html': '', 'academic': [], 'experience': [], 'projects': [], 'social': {}}
     if not os.path.exists(filepath):
         return content_data
 
@@ -186,6 +183,15 @@ def parse_content_markdown(filepath):
                     'link': link.group(1).strip() if link else '#'
                 })
 
+    social_match = re.search(r'# Social Links\s*\n(.*?)(?=\n#|$)', raw_text, re.DOTALL)
+    if social_match:
+        items = social_match.group(1).strip().split('\n- ')
+        for item in items:
+            if not item.strip(): continue
+            platform = re.search(r'platform:\s*(.*)', item)
+            link = re.search(r'link:\s*(.*)', item)
+            if platform and link:
+                content_data['social'][platform.group(1).strip().lower()] = link.group(1).strip()
     return content_data
 
 def build_portfolio():
@@ -194,7 +200,7 @@ def build_portfolio():
 
     data = parse_content_markdown('projects.md')
 
-    print(f"Menghubungkan ke GitHub untuk mengambil aktivitas kontribusi @{GITHUB_USERNAME}...")
+    print(f"Connecting to GitHub for fetching contributions @{GITHUB_USERNAME}...")
     raw_github_data = fetch_github_contributions(GITHUB_USERNAME)
     
     chart_context = {
@@ -213,13 +219,29 @@ def build_portfolio():
         academic_list=data['academic'],
         experience_list=data['experience'],
         projects=data['projects'],
+        social=data['social'],
         chart_context=chart_context
     )
 
     with open('docs/index.html', 'w', encoding='utf-8') as f:
         f.write(output_html)
+    src_favicon = 'src/assets/icons'
+    dist_favicon = 'docs/src/assets/icons'
+
+    if os.path.exists(src_favicon):
+        if os.path.exists(dist_favicon):
+            import shutil
+            shutil.rmtree(dist_favicon)
+        import shutil
+        shutil.copytree(src_favicon, dist_favicon)
+        print("Actions Log: Copied favicon assets to docs/src/assets/icons successfully.")
+    else:
+        print("Actions Log: Couldn't find src/assets/icons.")
+    # with open('docs/CNAME', 'w', encoding='utf-8') as f:
+    #     f.write('zakyislm.eu.org')
+    # cname creations disabled until the domains are properly set up to avoid build failures due to domain issues.
     
-    print("Sukses: docs/index.html telah berhasil dibuat secara dinamis!")
+    print("Actions Log: Successfully built portfolio at docs/index.html")
 
 if __name__ == '__main__':
     build_portfolio()

@@ -1,7 +1,25 @@
 <!DOCTYPE html><html class="dark" lang="en"><head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="icon" type="image/png" href="src/assets/icons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="src/assets/icons/favicon.svg" />
+    <link rel="shortcut icon" href="src/assets/icons/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="src/assets/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Zaky's Portofolio" />
+    <link rel="manifest" href="src/assets/icons/site.webmanifest" />
     <title>Zaky Islam Al Hafidz - Portfolio</title>
+    <meta name="description" content="Digital Portfolio of Zaky Islam Al Hafidz made with Python & Jinja2 dynamic portfolio generator that builds a clean, automated static developer profile. Fully deployed via GitHub Actions.">
+    <meta name="keywords" content="Zaky Islam Al Hafidz, voltonics, Portfolio, Informatics, UPN Veteran Jakarta, Software Engineer, Backend, DevOps">
+    <meta name="author" content="Zaky Islam Al Hafidz">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://zakyislm.github.io/">
+    <meta property="og:title" content="Zaky Islam Al Hafidz - Portfolio">
+    <meta property="og:description" content="Computer Engineer Student. Exploring software engineering, backend architecture, and scalable systems.">
+    <meta property="og:image" content="https://repository-images.githubusercontent.com/images_kamu_jika_ada.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://zakyislm.github.io/">
+    <meta property="twitter:title" content="Zaky Islam Al Hafidz - Portfolio">
+    <meta property="twitter:description" content="Computer Engineer Student. Exploring software engineering, backend architecture, and scalable systems.">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
@@ -40,7 +58,6 @@
         .text-medium-grey { color: #757575 !important; }
         .border-graphite { border-color: #212121 !important; }
         .ghost-hover:hover { background-color: rgba(255, 255, 255, 0.2); transition: background-color 0.2s ease; }
-        
         .carousel-container {
             position: relative;
             width: 100%;
@@ -48,31 +65,27 @@
             -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
             mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
         }
-
         .carousel-track { display: flex; width: max-content; animation: scroll 25s linear infinite; }
         .carousel-track:hover { animation-play-state: paused; }
         @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         .layout-container { display: flex; flex-direction: column; width: 100%; min-height: 100vh; }
         @media (min-width: 1024px) { .layout-container { flex-direction: row; } }
         .chart-btn { border-bottom: 1px solid transparent; }
         .chart-btn.active { color: #ffffff; border-color: #ffffff; }
-        
         .markdown-narrative p { font-family: Inter; color: #ffffff; font-weight: 300; font-size: 16px; line-height: 1.625; margin-bottom: 1rem; }
     </style>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" rel="stylesheet">
 </head>
 <body class="bg-background text-primary antialiased break-words">
-
 <div class="layout-container">
     <aside class="w-full lg:w-[30%] lg:h-screen lg:sticky lg:top-0 border-b lg:border-b-0 lg:border-r border-outline-variant flex flex-col justify-between p-6 bg-background z-10 shrink-0 lg:pt-[25px] lg:px-10 lg:pb-10">
         <div class="flex flex-col gap-8">
             <div>
                 <h1 class="font-body-md text-[20px] text-pure-white mb-2 font-normal">Zaky Islam Al Hafidz</h1>
-                <p class="font-body-md text-pure-white font-light text-[14px] mb-2">Computer Science Student</p>
+                <p class="font-body-md text-pure-white font-light text-[14px] mb-2">Computer Engineer Student</p>
                 <p class="font-body-md text-medium-grey font-light text-[14px]">I Like build, create, and solve problems with code.</p>
             </div>
             <div>
@@ -85,7 +98,7 @@
                     <i class="devicon-postgresql-plain text-2xl text-white"></i>
                 </div>
             </div>
-            <a class="inline-flex items-center justify-center border border-pure-white px-6 py-3 font-label-sm text-label-sm text-pure-white uppercase tracking-widest ghost-hover w-max mt-4" href="#">Download CV</a>
+            <a class="inline-flex items-center justify-center border border-pure-white px-6 py-3 font-label-sm text-label-sm text-pure-white uppercase tracking-widest ghost-hover w-max mt-4" href="{{ social.get('cv', '#') }}" target="_blank">Download CV</a>
             <nav class="hidden lg:flex flex-col gap-4 mt-8">
                 <a class="font-label-sm text-label-sm uppercase tracking-widest flex items-center gap-4 ghost-hover p-2 -ml-2 w-max transition-colors text-medium-grey" href="#academic">
                     <span class="material-symbols-outlined text-[16px]">school</span> Education
@@ -100,21 +113,17 @@
         </div>
         <div class="flex flex-col gap-6 mt-12 lg:mt-0">
             <div class="flex border-t border-outline-variant pt-6 gap-8">
-                <a class="text-white hover:text-secondary transition-colors" href="#"><i class="fa-brands fa-linkedin-in text-[28px]"></i></a>
-                <a class="text-white hover:text-secondary transition-colors" href="#"><i class="fa-brands fa-instagram text-[28px]"></i></a>
-                <a class="text-white hover:text-secondary transition-colors" href="#"><i class="fa-brands fa-github text-[28px]"></i></a>
-                <a class="text-white hover:text-secondary transition-colors" href="#"><i class="fa-solid fa-envelope text-[28px]"></i></a>
+                <a class="text-white hover:text-secondary transition-colors" href="{{ social.get('linkedin', '#') }}" target="_blank"><i class="fa-brands fa-linkedin-in text-[28px]"></i></a>
+                <a class="text-white hover:text-secondary transition-colors" href="{{ social.get('instagram', '#') }}" target="_blank"><i class="fa-brands fa-instagram text-[28px]"></i></a>
+                <a class="text-white hover:text-secondary transition-colors" href="{{ social.get('github', '#') }}" target="_blank"><i class="fa-brands fa-github text-[28px]"></i></a>
+                <a class="text-white hover:text-secondary transition-colors" href="{{ social.get('envelope', '#') }}"><i class="fa-solid fa-envelope text-[28px]"></i></a>
             </div>
         </div>
     </aside>
-
     <main class="w-full lg:w-[70%] flex flex-col min-w-0 gap-10 lg:px-16 lg:pb-16 px-6 pb-6 pt-6 lg:pt-[25px]">
-        
         <section class="flex flex-col gap-4 w-full mt-0 markdown-narrative">
             {{ narrative_html }}
         </section>
-
-        
         <section class="flex flex-col gap-8 w-full mt-0" id="academic">
             <div class="flex items-center gap-4 border-b border-outline-variant pb-4">
                 <h2 class="font-headline-lg-mobile text-[24px] text-pure-white font-normal uppercase tracking-wider">Education</h2>
@@ -124,13 +133,11 @@
                 <div class="relative">
                     <div class="absolute -left-[28.5px] top-2 w-2 h-2 {% if loop.first %}bg-pure-white{% else %}border border-outline-variant bg-background{% endif %} rounded-full"></div>
                     <div class="flex flex-col gap-1 w-full">
-                        
                         <div class="flex flex-col sm:flex-row items-start justify-between w-full mb-1 gap-2 sm:gap-4">
                             <div class="flex-1 pr-0 lg:pr-32">
                                 <h3 class="font-body-md text-pure-white font-bold text-lg mb-1">{{ edu.institution }}</h3>
                                 <p class="font-body-md text-medium-grey font-light text-[14px] text-justify leading-relaxed">{{ edu.description }}</p>
                             </div>
-                            
                             <span class="font-label-sm text-medium-grey uppercase tracking-widest sm:shrink-0 pt-1 text-[11px] sm:text-[12px]">{{ edu.period }}</span>
                         </div>
                     </div>
@@ -138,8 +145,6 @@
                 {% endfor %}
             </div>
         </section>
-
-        
         <section class="flex flex-col gap-8 w-full" id="experience">
             <div class="flex items-center gap-4 border-b border-outline-variant pb-4">
                 <h2 class="font-headline-lg-mobile text-[24px] text-pure-white font-normal uppercase tracking-wider">Experiences</h2>
@@ -149,7 +154,6 @@
                 <div class="relative">
                     <div class="absolute -left-[28.5px] top-2 w-2 h-2 border border-outline-variant bg-background rounded-full hover:bg-pure-white transition-colors duration-300"></div>
                     <div class="flex flex-col gap-1 w-full">
-                        
                         <div class="flex flex-col sm:flex-row items-start justify-between w-full mb-1 gap-2 sm:gap-4">
                             <div class="flex-1 pr-0 lg:pr-32">
                                 <h3 class="font-body-md text-pure-white font-bold text-lg">{{ exp.role }}</h3>
@@ -163,18 +167,12 @@
                 {% endfor %}
             </div>
         </section>
-
-        
         <section class="flex flex-col gap-8 w-[calc(100%+3rem)] lg:w-[calc(100%+8rem)] -ml-6 lg:-ml-16 overflow-hidden pb-12" id="projects">
             <div class="flex items-center gap-4 border-b border-outline-variant pb-4 ml-6 lg:ml-16 mr-6 lg:mr-16">
                 <h2 class="font-headline-lg-mobile text-[24px] text-pure-white font-normal uppercase tracking-wider">Highlighted Projects</h2>
             </div>
-            
-            
             <div class="carousel-container no-scrollbar pt-4">
                 <div class="carousel-track">
-                    
-                    
                     {% for project in projects %}
                     <div class="w-[300px] shrink-0 border border-outline-variant bg-background p-8 flex flex-col gap-6 mr-6">
                         <div class="flex flex-col justify-between h-full">
@@ -191,8 +189,6 @@
                         </div>
                     </div>
                     {% endfor %}
-                    
-                    
                     {% for project in projects %}
                     <div aria-hidden="true" class="w-[300px] shrink-0 border border-outline-variant bg-background p-8 flex flex-col gap-6 mr-6">
                         <div class="flex flex-col justify-between h-full">
@@ -209,12 +205,9 @@
                         </div>
                     </div>
                     {% endfor %}
-
                 </div>
             </div>
         </section>
-
-        
         <section class="flex flex-col gap-8 w-full" id="github-activity">
             <div class="flex items-center justify-between border-b border-outline-variant pb-4">
                 <h2 class="font-headline-lg-mobile text-[24px] text-pure-white font-normal uppercase tracking-wider">Github Stats</h2>
@@ -260,19 +253,16 @@
                 </div>
             </div>
         </section>
-
         <footer class="w-full border-t border-outline-variant pt-8 mt-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <span class="font-label-sm text-label-sm text-medium-grey uppercase tracking-widest">© 2026. All Rights Reserved.</span>
         </footer>
     </main>
 </div>
-
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         const sections = document.querySelectorAll('main > section');
         const navLinks = document.querySelectorAll('aside nav a');
         if(navLinks.length === 0) return;
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -289,9 +279,7 @@
                 }
             });
         }, { root: null, rootMargin: '0px', threshold: 0.3 });
-
         sections.forEach(section => { if(section.id) observer.observe(section); });
-
         const chartData = {
             'week': {
                 poly: "{{ chart_context['week']['poly'] }}",
@@ -318,33 +306,25 @@
                 desc: "{{ chart_context['year']['desc'] }}"
             }
         };
-
         const chartBtns = document.querySelectorAll('.chart-btn');
         const chartElements = document.getElementById('chart-elements');
         const chartLabels = document.getElementById('chart-labels');
         const chartCount = document.getElementById('chart-count');
         const chartDesc = document.getElementById('chart-desc');
-
         chartBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 chartBtns.forEach(b => b.classList.remove('active'));
                 e.target.classList.add('active');
-                
                 const period = e.target.getAttribute('data-period');
                 const data = chartData[period];
-
                 chartCount.textContent = data.count;
                 chartDesc.textContent = data.desc;
-
                 let svgContent = `<polygon fill="url(#chart-gradient)" points="${data.poly}"></polygon>
                                   <polyline fill="none" points="${data.line}" stroke="#ffffff" stroke-width="2" vector-effect="non-scaling-stroke"></polyline>`;
-                
                 data.points.forEach(pt => {
                     svgContent += `<circle cx="${pt[0]}" cy="${pt[1]}" fill="#000" r="3" stroke="#fff" stroke-width="2"></circle>`;
                 });
-                
                 chartElements.innerHTML = svgContent;
-                
                 chartLabels.innerHTML = data.labels.map(label => 
                     `<span class="font-label-sm text-medium-grey text-[10px] uppercase tracking-widest">${label}</span>`
                 ).join('');
