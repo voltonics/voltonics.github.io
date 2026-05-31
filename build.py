@@ -173,12 +173,12 @@ def parse_content_markdown(filepath):
 
     projects_match = re.search(r'# Selected Projects\s*\n(.*?)(?=\n#|$)', raw_text, re.DOTALL)
     if projects_match:
-        items = projects_match.group(1).strip().split('\n- ')
+        items = re.split(r'\n\s*-\s+', projects_match.group(1).strip())
         for item in items:
             if not item.strip(): continue
             title = re.search(r'title:\s*(.*)', item)
             cat = re.search(r'category:\s*(.*)', item)
-            link = re.search(r'link:\s*(.*)', item)
+            link = re.search(r'link:\s*["\']?(.*?)["\']?$', item, re.M)
             if title:
                 content_data['projects'].append({
                     'title': title.group(1).strip(),
