@@ -6,6 +6,7 @@ on:
       - legend 
   schedule:
     - cron: '0 0 * * *' 
+
 permissions:
   contents: write
 
@@ -30,6 +31,9 @@ jobs:
     - name: Clean Old Build Folder
       run: rm -rf docs
 
+    - name: Create Empty Docs Folder
+      run: mkdir docs
+
     - name: Run Build Script
       env:
         PORTFOLIO_GRAPHQL_TOKEN: ${{ secrets.PORTFOLIO_GRAPHQL_TOKEN }}
@@ -41,4 +45,4 @@ jobs:
       with:
         folder: docs
         branch: gh-pages
-        single-commit: true 
+        single-commit: true
