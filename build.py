@@ -196,6 +196,21 @@ def parse_content_markdown(filepath):
             if platform and link:
                 content_data['social'][platform.group(1).strip().lower()] = link.group(1).strip()
     return content_data
+def generate_sitemap(base_url="https://zakyislm.github.io"):
+    # Sesuaikan base_url dengan alamat live website kamu
+    sitemap_content = f"""<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{base_url}/</loc>
+    <lastmod>{datetime.now().strftime('%Y-%m-%d')}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
+"""
+    with open('docs/sitemap.xml', 'w', encoding='utf-8') as f:
+        f.write(sitemap_content)
+    print("Actions Log: Successfully generated sitemap.xml")
 def build_portfolio():
     if not os.path.exists('docs'):
         os.makedirs('docs')
@@ -236,5 +251,6 @@ def build_portfolio():
     #     f.write('zakyislm.eu.org')
     # cname creations disabled until the domains are properly set up to avoid build failures due to domain issues.
     print("Actions Log: Successfully built portfolio at docs/index.html")
+    generate_sitemap()
 if __name__ == '__main__':
     build_portfolio()
