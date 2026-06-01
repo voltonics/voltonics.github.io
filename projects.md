@@ -14,8 +14,7 @@ Deeply passionate about exploring the intersections of software engineering, bac
 - role: Division Leader
   company: ITechno
   period: 2024 – 2025
-  description: Managed technical operations and led a cross-functional team of developers. Optimized project workflows, coordinated development sprints, and ensured high-quality code standards across platforms.
-
+  description: Led the programming division by designing engaging technical curricula and managing training sessions to foster a comfortable, adaptive environment where members can effectively develop their coding skills and talents.
 # Selected Projects
 - title: IDX Pipelines with Python
   category: Data Cleaning
