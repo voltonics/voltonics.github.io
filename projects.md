@@ -36,7 +36,7 @@ Deeply passionate about exploring the intersections of software engineering, bac
   link: https://instagram.com/zakyislm
 
 - platform: github
-  link: https://github.com/voltonics
+  link: https://github.com/zakyislm
 
 - platform: envelope
   link: mailto:zakislam238@gmail.com
