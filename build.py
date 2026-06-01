@@ -251,6 +251,10 @@ def build_portfolio():
     #     f.write('zakyislm.eu.org')
     # cname creations disabled until the domains are properly set up to avoid build failures due to domain issues.
     print("Actions Log: Successfully built portfolio at docs/index.html")
+    verification_filename = 'google3ede5882a141985b.html'
+    with open(f'docs/{verification_filename}', 'w', encoding='utf-8') as f:
+        f.write('google-site-verification: google3ede5882a141985b.html') 
+    print(f"Actions Log: Created verification file {verification_filename} in docs/")
     generate_sitemap()
 if __name__ == '__main__':
     build_portfolio()
