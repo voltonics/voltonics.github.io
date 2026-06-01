@@ -13,7 +13,7 @@ Deeply passionate about exploring the intersections of software engineering, bac
 # Experience
 - role: Division Leader
   company: ITechno
-  period: 2024 – 2025
+  period: 2023 – 2024
   description: Led the programming division by designing engaging technical curricula and managing training sessions to foster a comfortable, adaptive environment where members can effectively develop their coding skills and talents.
 # Selected Projects
 - title: IDX Pipelines with Python
