@@ -28,6 +28,10 @@ Deeply passionate about exploring the intersections of software engineering, bac
   category: Frontend Engineer
   link: "https://github.com/the-itechno/the-itechno.github.io"
 
+- title: Intisari CV Builder
+  category: Fullstack Assistan
+  link: "https://intisari.vercel.app"
+
 # Social Links
 - platform: linkedin
   link: https://linkedin.com/in/zakyislam
