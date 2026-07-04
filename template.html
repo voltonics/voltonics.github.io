@@ -40,7 +40,7 @@
                     },
                     "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
                     "spacing": { "container-padding": "40px", "stack-lg": "32px", "stack-sm": "8px", "stack-md": "16px", "section-gap": "120px", "gutter": "24px" },
-                    "fontFamily": { "label-sm": ["Inter"], "headline-lg": ["Inter"], "body-md": ["Inter"], "headline-lg-mobile": ["Inter"], "display-lg": ["Inter"] },
+                    "fontFamily": { "label-sm": ["Inter", "sans-serif"], "headline-lg": ["Inter", "sans-serif"], "body-md": ["Inter", "sans-serif"], "headline-lg-mobile": ["Inter", "sans-serif"], "display-lg": ["Inter", "sans-serif"] },
                     "fontSize": {
                         "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
                         "headline-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "500" }],
@@ -111,7 +111,7 @@
                     <i class="devicon-postgresql-plain text-2xl text-white"></i>
                 </div>
             </div>
-            <a class="inline-flex items-center justify-center border border-pure-white px-6 py-3 font-label-sm text-label-sm text-pure-white uppercase tracking-widest ghost-hover w-max mt-4" href="{{ social.get('cv', '#') }}" target="_blank">Download CV</a>
+            <a class="inline-flex items-center justify-center border border-pure-white px-6 py-3 font-label-sm text-label-sm text-pure-white uppercase tracking-widest ghost-hover w-max mt-4 pointer-events-none opacity-50 cursor-not-allowed" href="{{ social.get('cv', '#') }}" target="_blank">Download CV</a>
             <nav class="hidden lg:flex flex-col gap-4 mt-8">
                 <a class="font-label-sm text-label-sm uppercase tracking-widest flex items-center gap-4 ghost-hover p-2 -ml-2 w-max transition-colors text-medium-grey" href="#academic">
                     <span class="material-symbols-outlined text-[16px]">school</span> Education

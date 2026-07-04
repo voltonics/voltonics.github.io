@@ -3,9 +3,13 @@ name: Build and Deploy Portfolio
 on:
   push:
     branches:
-      - legend 
+      - legend
+  pull_request:
+    branches:
+      - legend
   schedule:
     - cron: '0 2 * * 1'
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -28,6 +32,11 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Log Deployment Start
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      run: python db_log.py started
+
     - name: Clean Old Build Folder
       run: rm -rf docs
 
@@ -46,3 +55,15 @@ jobs:
         folder: docs
         branch: gh-pages
         single-commit: true
+
+    - name: Log Deployment Success
+      if: success()
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      run: python db_log.py success
+
+    - name: Log Deployment Failure
+      if: failure()
+      env:
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      run: python db_log.py failure
