@@ -1,3 +1,11 @@
+# SEO Metadata
+author: Zaky Islam Al Hafidz
+description: Digital Portfolio of Zaky Islam Al Hafidz made with Python & Jinja2 dynamic portfolio generator that builds a clean, automated static developer profile. Fully deployed via GitHub Actions.
+url: https://zakyislm.github.io/
+title: Zaky Islam Al Hafidz - Portfolio
+og_description: Computer Engineer Student. Exploring software engineering, backend architecture, and scalable systems.
+og_image: https://gitrepoo.vercel.app/LnxZBrvHBhjfPhZG
+
 # Profile
 name: Zaky Islam Al Hafidz
 role: Computer Engineer Student

@@ -149,6 +149,7 @@ def generate_chart_data(contributions, days_range, width=1000, height=200):
     }
 def parse_content_markdown(filepath):
     content_data = {
+        'seo': {'author': '', 'description': '', 'url': '', 'title': '', 'og_description': '', 'og_image': ''},
         'profile': {'name': '', 'role': '', 'slogan': ''},
         'tech_stack': [],
         'narrative_html': '', 
@@ -162,6 +163,16 @@ def parse_content_markdown(filepath):
     with open(filepath, 'r', encoding='utf-8') as f:
         raw_text = f.read()
     
+    seo_match = re.search(r'# SEO Metadata\s*\n(.*?)(?=\n#|$)', raw_text, re.DOTALL)
+    if seo_match:
+        for line in seo_match.group(1).strip().split('\n'):
+            if line.startswith('author:'): content_data['seo']['author'] = line.split('author:', 1)[1].strip()
+            if line.startswith('description:'): content_data['seo']['description'] = line.split('description:', 1)[1].strip()
+            if line.startswith('url:'): content_data['seo']['url'] = line.split('url:', 1)[1].strip()
+            if line.startswith('title:'): content_data['seo']['title'] = line.split('title:', 1)[1].strip()
+            if line.startswith('og_description:'): content_data['seo']['og_description'] = line.split('og_description:', 1)[1].strip()
+            if line.startswith('og_image:'): content_data['seo']['og_image'] = line.split('og_image:', 1)[1].strip()
+
     profile_match = re.search(r'# Profile\s*\n(.*?)(?=\n#|$)', raw_text, re.DOTALL)
     if profile_match:
         for line in profile_match.group(1).strip().split('\n'):
@@ -298,9 +309,9 @@ def build_portfolio():
         narrative_html=data['narrative_html'],
         academic_list=data['academic'],
         experience_list=data['experience'],
-        projects=data['projects'],
         social=data['social'],
-        chart_context=chart_context
+        chart_context=chart_context,
+        seo=data.get('seo', {})
     )
     with open('docs/index.html', 'w', encoding='utf-8') as f:
         f.write(output_html)
@@ -325,9 +336,13 @@ def build_portfolio():
         print("Actions Log: Copied CV.pdf to docs/CV.pdf successfully.")
         
     if os.path.exists('404_template.html'):
-        import shutil
-        shutil.copy('404_template.html', 'docs/404.html')
-        print("Actions Log: Copied 404_template.html to docs/404.html successfully.")
+        template_404 = env.get_template('404_template.html')
+        output_404 = template_404.render(
+            seo=data.get('seo', {})
+        )
+        with open('docs/404.html', 'w', encoding='utf-8') as f:
+            f.write(output_404)
+        print("Actions Log: Rendered 404_template.html to docs/404.html successfully.")
 
     print("Actions Log: Successfully built portfolio at docs/index.html")
     verification_filename = 'google3ede5882a141985b.html'

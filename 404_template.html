@@ -6,10 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 - Page Not Found</title>
     <meta name="description"
-        content="Digital Portfolio of Zaky Islam Al Hafidz made with Python & Jinja2 dynamic portfolio generator that builds a clean, automated static developer profile. Fully deployed via GitHub Actions.">
+        content="{{ seo.description }}">
     <meta name="keywords"
         content="Zaky Islam Al Hafidz, Zaky, zaky, ZAKY, Zaky Islam, zaky islam, ZAKY ISLAM, zakyislm, zakyislam, islam zaky, Islam Zaky, ISLAM ZAKY, Zaky Al Hafidz, Zaky Hafidz, Portfolio, Portofolio, Informatics, Informatika, UPN Veteran Jakarta, Software Engineer, Backend, DevOps, Web Developer, Programmer">
-    <meta name="author" content="Zaky Islam Al Hafidz">
+    <meta name="author" content="{{ seo.author }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ seo.url }}">
+    <meta property="og:title" content="{{ seo.title }}">
+    <meta property="og:description"
+        content="{{ seo.og_description }}">
+    <meta property="og:image" content="{{ seo.og_image }}">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ seo.url }}">
+    <meta property="twitter:title" content="{{ seo.title }}">
+    <meta property="twitter:description"
+        content="{{ seo.og_description }}">
+    <meta property="twitter:image" content="{{ seo.og_image }}">
     <!-- CSS -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 
