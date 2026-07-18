@@ -1,3 +1,15 @@
+# Profile
+name: Zaky Islam Al Hafidz
+role: Computer Engineer Student
+slogan: I like building, creating, and solving problems with code.
+
+# Tech Stack
+- devicon-python-original
+- devicon-dart-original
+- devicon-html5-plain
+- devicon-cplusplus-plain
+- devicon-postgresql-original
+
 # Personal Narrative
 Deeply passionate about exploring the intersections of software engineering, backend architecture, and scalable system design. The journey in Computer Engineering is driven by a relentless curiosity to understand complex technical challenges and craft elegant, efficient solutions. Thrives in environments that demand analytical thinking and creative problem-solving, consistently striving to push the boundaries of what is technically possible in system development and data-driven engineering.
 
@@ -46,5 +58,5 @@ Deeply passionate about exploring the intersections of software engineering, bac
   link: mailto:zakislam238@gmail.com
 
 - platform: cv
-  link: #
+  link: ./CV.pdf
   

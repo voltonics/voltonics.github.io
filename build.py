@@ -5,7 +5,12 @@ import requests
 import markdown
 from datetime import datetime, timedelta
 from jinja2 import Environment, FileSystemLoader
-GITHUB_USERNAME = os.getenv("GITHUB_USERNAME", "zakyislm") 
+GITHUB_USERNAME = os.getenv("GITHUB_USERNAME") 
+if GITHUB_USERNAME:
+    print(f"Actions Log: GITHUB_USERNAME found {GITHUB_USERNAME}")
+else:
+    GITHUB_USERNAME = "zakyislm"
+    print(f"Actions Log: GITHUB_USERNAME not found. Using fallback data...")
 def fetch_github_contributions(username):
     token = os.getenv("PORTFOLIO_GRAPHQL_TOKEN")
     if token:
@@ -111,8 +116,17 @@ def generate_chart_data(contributions, days_range, width=1000, height=200):
         x = idx * x_step
         y = height - 20 - ((count / max_val) * (height - 40))
         points.append([round(x, 1), round(y, 1)])
-    line_str = " ".join([f"{pt[0]},{pt[1]}" for pt in points])
-    poly_str = f"0,{height} " + line_str + f" {width},{height}"
+    d_parts = [f"M {points[0][0]},{points[0][1]}"]
+    for i in range(len(points) - 1):
+        x0, y0 = points[i]
+        x1, y1 = points[i+1]
+        cp1x = round(x0 + (x1 - x0) * 0.4, 1)
+        cp1y = y0
+        cp2x = round(x1 - (x1 - x0) * 0.4, 1)
+        cp2y = y1
+        d_parts.append(f"C {cp1x},{cp1y} {cp2x},{cp2y} {x1},{y1}")
+    line_str = " ".join(d_parts)
+    poly_str = line_str + f" L {points[-1][0]},{height} L {points[0][0]},{height} Z"
     labels = []
     if days_range == 7:
         labels = [item[0].strftime('%a') for item in chart_points_data]
@@ -134,11 +148,49 @@ def generate_chart_data(contributions, days_range, width=1000, height=200):
         "labels": labels
     }
 def parse_content_markdown(filepath):
-    content_data = {'narrative_html': '', 'academic': [], 'experience': [], 'projects': [], 'social': {}}
+    content_data = {
+        'profile': {'name': '', 'role': '', 'slogan': ''},
+        'tech_stack': [],
+        'narrative_html': '', 
+        'academic': [], 
+        'experience': [], 
+        'projects': [], 
+        'social': {}
+    }
     if not os.path.exists(filepath):
         return content_data
     with open(filepath, 'r', encoding='utf-8') as f:
         raw_text = f.read()
+    
+    profile_match = re.search(r'# Profile\s*\n(.*?)(?=\n#|$)', raw_text, re.DOTALL)
+    if profile_match:
+        for line in profile_match.group(1).strip().split('\n'):
+            if line.startswith('name:'): content_data['profile']['name'] = line.split('name:', 1)[1].strip()
+            if line.startswith('role:'): content_data['profile']['role'] = line.split('role:', 1)[1].strip()
+            if line.startswith('slogan:'): content_data['profile']['slogan'] = line.split('slogan:', 1)[1].strip()
+
+    tech_match = re.search(r'# Tech Stack\s*\n(.*?)(?=\n#|$)', raw_text, re.DOTALL)
+    if tech_match:
+        items = tech_match.group(1).strip().split('\n- ')
+        tech_list = []
+        for item in items:
+            tech = item.strip().lstrip('- ')
+            if not tech: continue
+            if tech.startswith('devicon-'):
+                parts = tech.split('-')
+                name = parts[1]
+                version = "-".join(parts[2:])
+                svg_url_colored = f"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/{name}/{name}-{version}.svg"
+                svg_url_plain = f"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/{name}/{name}-plain.svg"
+                tech_list.append({
+                    'class': tech, 
+                    'svg_url_colored': svg_url_colored, 
+                    'svg_url_plain': svg_url_plain, 
+                    'name': name
+                })
+            else:
+                tech_list.append({'class': tech, 'svg_url_colored': None, 'svg_url_plain': None, 'name': tech})
+        content_data['tech_stack'] = tech_list
     narrative_match = re.search(r'# Personal Narrative\s*\n(.*?)(?=\n#|$)', raw_text, re.DOTALL)
     if narrative_match:
         content_data['narrative_html'] = markdown.markdown(narrative_match.group(1).strip())
@@ -180,11 +232,15 @@ def parse_content_markdown(filepath):
             title = re.search(r'title:\s*(.*)', item)
             cat = re.search(r'category:\s*(.*)', item)
             link = re.search(r'link:\s*["\']?(.*?)["\']?$', item, re.M)
+            source = re.search(r'source:\s*["\']?(.*?)["\']?$', item, re.M)
+            desc = re.search(r'description:\s*(.*)', item)
             if title:
                 content_data['projects'].append({
                     'title': title.group(1).strip(),
                     'category': cat.group(1).strip() if cat else 'Project',
-                    'link': link.group(1).strip() if link else '#'
+                    'description': desc.group(1).strip() if desc else '',
+                    'link': link.group(1).strip() if link else '#',
+                    'source': source.group(1).strip() if source else ''
                 })
     social_match = re.search(r'# Social Links\s*\n(.*?)(?=\n#|$)', raw_text, re.DOTALL)
     if social_match:
@@ -203,7 +259,7 @@ def generate_sitemap(base_url="https://zakyislm.github.io"):
   <url>
     <loc>{base_url}/</loc>
     <lastmod>{datetime.now().strftime('%Y-%m-%d')}</lastmod>
-    <changefreq>daily</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
 </urlset>
@@ -211,6 +267,16 @@ def generate_sitemap(base_url="https://zakyislm.github.io"):
     with open('docs/sitemap.xml', 'w', encoding='utf-8') as f:
         f.write(sitemap_content)
     print("Actions Log: Successfully generated sitemap.xml")
+
+def generate_robots_txt(base_url="https://zakyislm.github.io"):
+    robots_content = f"""User-agent: *
+Allow: /
+
+Sitemap: {base_url}/sitemap.xml
+"""
+    with open('docs/robots.txt', 'w', encoding='utf-8') as f:
+        f.write(robots_content)
+    print("Actions Log: Successfully generated robots.txt")
 def build_portfolio():
     if not os.path.exists('docs'):
         os.makedirs('docs')
@@ -227,6 +293,8 @@ def build_portfolio():
     env.filters['tojson'] = lambda data: json.dumps(data)
     template = env.get_template('template.html')
     output_html = template.render(
+        profile=data.get('profile', {}),
+        tech_stack=data.get('tech_stack', []),
         narrative_html=data['narrative_html'],
         academic_list=data['academic'],
         experience_list=data['experience'],
@@ -250,11 +318,23 @@ def build_portfolio():
     # with open('docs/CNAME', 'w', encoding='utf-8') as f:
     #     f.write('zakyislm.eu.org')
     # cname creations disabled until the domains are properly set up to avoid build failures due to domain issues.
+    
+    if os.path.exists('CV.pdf'):
+        import shutil
+        shutil.copy('CV.pdf', 'docs/CV.pdf')
+        print("Actions Log: Copied CV.pdf to docs/CV.pdf successfully.")
+        
+    if os.path.exists('404_template.html'):
+        import shutil
+        shutil.copy('404_template.html', 'docs/404.html')
+        print("Actions Log: Copied 404_template.html to docs/404.html successfully.")
+
     print("Actions Log: Successfully built portfolio at docs/index.html")
     verification_filename = 'google3ede5882a141985b.html'
     with open(f'docs/{verification_filename}', 'w', encoding='utf-8') as f:
         f.write('google-site-verification: google3ede5882a141985b.html') 
     print(f"Actions Log: Created verification file {verification_filename} in docs/")
     generate_sitemap()
+    generate_robots_txt()
 if __name__ == '__main__':
     build_portfolio()

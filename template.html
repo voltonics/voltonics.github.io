@@ -1,4 +1,7 @@
-<!DOCTYPE html><html class="dark" lang="en"><head>
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link rel="icon" type="image/png" href="src/assets/icons/favicon-96x96.png" sizes="96x96" />
@@ -8,39 +11,49 @@
     <meta name="apple-mobile-web-app-title" content="Zaky's Portofolio" />
     <link rel="manifest" href="src/assets/icons/site.webmanifest" />
     <title>Zaky Islam Al Hafidz - Portofolio</title>
-    <meta name="description" content="Digital Portfolio of Zaky Islam Al Hafidz made with Python & Jinja2 dynamic portfolio generator that builds a clean, automated static developer profile. Fully deployed via GitHub Actions.">
-    <meta name="keywords" content="Zaky Islam Al Hafidz, voltonics, Portfolio, Informatics, UPN Veteran Jakarta, Software Engineer, Backend, DevOps">
+    <meta name="description"
+        content="Digital Portfolio of Zaky Islam Al Hafidz made with Python & Jinja2 dynamic portfolio generator that builds a clean, automated static developer profile. Fully deployed via GitHub Actions.">
+    <meta name="keywords"
+        content="Zaky Islam Al Hafidz, Zaky, zaky, ZAKY, Zaky Islam, zaky islam, ZAKY ISLAM, zakyislm, zakyislam, islam zaky, Islam Zaky, ISLAM ZAKY, Zaky Al Hafidz, Zaky Hafidz, Portfolio, Portofolio, Informatics, Informatika, UPN Veteran Jakarta, Software Engineer, Backend, DevOps, Web Developer, Programmer">
     <meta name="author" content="Zaky Islam Al Hafidz">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://zakyislm.github.io/">
     <meta property="og:title" content="Zaky Islam Al Hafidz - Portfolio">
-    <meta property="og:description" content="Computer Engineer Student. Exploring software engineering, backend architecture, and scalable systems.">
+    <meta property="og:description"
+        content="Computer Engineer Student. Exploring software engineering, backend architecture, and scalable systems.">
     <meta property="og:image" content="https://gitrepoo.vercel.app/LnxZBrvHBhjfPhZG">
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://zakyislm.github.io/">
     <meta property="twitter:title" content="Zaky Islam Al Hafidz - Portfolio">
-    <meta property="twitter:description" content="Computer Engineer Student. Exploring software engineering, backend architecture, and scalable systems.">
+    <meta property="twitter:description"
+        content="Computer Engineer Student. Exploring software engineering, backend architecture, and scalable systems.">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
     <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     "colors": {
-                        "outline-variant": "#212121",
+                        "outline-variant": "#3f3f46",
                         "on-surface": "#e2e2e2",
                         "primary": "#ffffff",
-                        "secondary": "#757575",
-                        "on-surface-variant": "#757575",
+                        "secondary": "#a1a1aa",
+                        "on-surface-variant": "#a1a1aa",
                         "background": "#000000",
                         "surface": "#000000",
-                        "outline": "#212121",
+                        "outline": "#3f3f46",
+                        "accent": "#0ea5e9",
                     },
                     "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
                     "spacing": { "container-padding": "40px", "stack-lg": "32px", "stack-sm": "8px", "stack-md": "16px", "section-gap": "120px", "gutter": "24px" },
-                    "fontFamily": { "label-sm": ["JetBrains Mono", "monospace"], "headline-lg": ["JetBrains Mono", "monospace"], "body-md": ["JetBrains Mono", "monospace"], "headline-lg-mobile": ["JetBrains Mono", "monospace"], "display-lg": ["JetBrains Mono", "monospace"] },
+                    "fontFamily": { "label-sm": ["Plus Jakarta Sans", "sans-serif"], "headline-lg": ["Plus Jakarta Sans", "sans-serif"], "body-md": ["Roboto Slab", "serif"], "headline-lg-mobile": ["Plus Jakarta Sans", "sans-serif"], "display-lg": ["Plus Jakarta Sans", "sans-serif"] },
                     "fontSize": {
                         "label-sm": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "600" }],
                         "headline-lg": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "500" }],
@@ -66,11 +79,32 @@
     }
     </script>
     <style>
-        body { background-color: #000000; color: #ffffff; margin: 0; padding: 0; overflow-x: hidden; width: 100%; }
-        .text-pure-white { color: #ffffff !important; }
-        .text-medium-grey { color: #757575 !important; }
-        .border-graphite { border-color: #212121 !important; }
-        .ghost-hover:hover { background-color: rgba(255, 255, 255, 0.2); transition: background-color 0.2s ease; }
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        .text-pure-white {
+            color: #ffffff !important;
+        }
+
+        .text-medium-grey {
+            color: #757575 !important;
+        }
+
+        .border-graphite {
+            border-color: #212121 !important;
+        }
+
+        .ghost-hover:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transition: background-color 0.2s ease;
+        }
+
         .carousel-container {
             position: relative;
             width: 100%;
@@ -78,245 +112,413 @@
             -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
             mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
         }
-        .carousel-track { display: flex; width: max-content; animation: scroll 25s linear infinite; }
-        .carousel-track:hover { animation-play-state: paused; }
-        @keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        .layout-container { display: flex; flex-direction: column; width: 100%; min-height: 100vh; }
-        @media (min-width: 1024px) { .layout-container { flex-direction: row; } }
-        .chart-btn { border-bottom: 1px solid transparent; }
-        .chart-btn.active { color: #ffffff; border-color: #ffffff; }
-        .markdown-narrative p { font-family: 'JetBrains Mono', monospace; color: #ffffff; font-weight: 300; font-size: 16px; line-height: 1.625; margin-bottom: 1rem; }
+
+        .carousel-track {
+            display: flex;
+            width: max-content;
+            animation: scroll 25s linear infinite;
+        }
+
+        .carousel-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .layout-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        @media (min-width: 1024px) {
+            .layout-container {
+                flex-direction: row;
+            }
+        }
+
+        .chart-btn {
+            border-bottom: 1px solid transparent;
+        }
+
+        .chart-btn.active {
+            color: #0ea5e9;
+            border-color: #0ea5e9;
+        }
+
+        .markdown-narrative p {
+            font-family: 'Roboto Slab', serif;
+            color: #ffffff;
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 1.625;
+            margin-bottom: 1rem;
+        }
     </style>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" rel="stylesheet">
 </head>
+
 <body class="bg-background text-primary antialiased break-words">
-<div class="layout-container">
-    <aside class="w-full lg:w-[30%] lg:h-screen lg:sticky lg:top-0 border-b lg:border-b-0 lg:border-r border-outline-variant flex flex-col justify-between p-6 bg-background z-10 shrink-0 lg:pt-[25px] lg:px-10 lg:pb-10">
-        <div class="flex flex-col gap-8">
-            <div>
-                <h1 class="font-body-md text-[20px] text-pure-white mb-2 font-normal">Zaky Islam Al Hafidz</h1>
-                <p class="font-body-md text-pure-white font-light text-[14px] mb-2">Computer Engineer Student</p>
-                <p class="font-body-md text-medium-grey font-light text-[14px]">I Like build, create, and solve problems with code.</p>
-            </div>
-            <div>
-                <h2 class="font-label-sm text-label-sm text-pure-white uppercase tracking-widest mb-4">Tech Stack</h2>
-                <div class="flex flex-wrap gap-4">
-                    <i class="devicon-python-plain text-2xl text-white"></i>
-                    <i class="devicon-dart-plain text-2xl text-white"></i>
-                    <i class="devicon-html5-plain text-2xl text-white"></i>
-                    <i class="devicon-cplusplus-plain text-2xl text-white"></i>
-                    <i class="devicon-postgresql-plain text-2xl text-white"></i>
+    <div class="layout-container">
+        <aside
+            class="w-full lg:w-[30%] lg:h-screen lg:sticky lg:top-0 border-b lg:border-b-0 lg:border-r border-outline-variant flex flex-col justify-between p-6 bg-background z-10 shrink-0 lg:pt-[25px] lg:px-10 lg:pb-10">
+            <div class="flex flex-col gap-8">
+                <div>
+                    <h1 class="font-body-md text-[20px] text-pure-white mb-2 font-normal">{{ profile.name }}</h1>
+                    <p class="font-body-md text-pure-white font-light text-[14px] mb-2">{{ profile.role }}</p>
+                    <p class="font-body-md text-medium-grey font-light text-[14px]">{{ profile.slogan }}</p>
                 </div>
-            </div>
-            <a class="inline-flex items-center justify-center border border-pure-white px-6 py-3 font-label-sm text-label-sm text-pure-white uppercase tracking-widest ghost-hover w-max mt-4 pointer-events-none opacity-50 cursor-not-allowed" href="{{ social.get('cv', '#') }}" target="_blank">Download CV</a>
-            <nav class="hidden lg:flex flex-col gap-4 mt-8">
-                <a class="font-label-sm text-label-sm uppercase tracking-widest flex items-center gap-4 ghost-hover p-2 -ml-2 w-max transition-colors text-medium-grey" href="#academic">
-                    <span class="material-symbols-outlined text-[16px]">school</span> Education
-                </a>
-                <a class="font-label-sm text-label-sm uppercase tracking-widest flex items-center gap-4 ghost-hover p-2 -ml-2 w-max transition-colors hover:text-pure-white text-medium-grey" href="#experience">
-                    <span class="material-symbols-outlined text-[16px]">work</span> Experiences
-                </a>
-                <a class="font-label-sm text-label-sm uppercase tracking-widest flex items-center gap-4 ghost-hover p-2 -ml-2 w-max transition-colors hover:text-pure-white text-medium-grey" href="#projects">
-                    <span class="material-symbols-outlined text-[16px]">grid_view</span> Highlighted Projects
-                </a>
-            </nav>
-        </div>
-        <div class="flex flex-col gap-6 mt-12 lg:mt-0">
-            <div class="flex border-t border-outline-variant pt-6 gap-8">
-                <a class="text-white hover:text-secondary transition-colors" href="{{ social.get('linkedin', '#') }}" target="_blank"><i class="fa-brands fa-linkedin-in text-[28px]"></i></a>
-                <a class="text-white hover:text-secondary transition-colors" href="{{ social.get('instagram', '#') }}" target="_blank"><i class="fa-brands fa-instagram text-[28px]"></i></a>
-                <a class="text-white hover:text-secondary transition-colors" href="{{ social.get('github', '#') }}" target="_blank"><i class="fa-brands fa-github text-[28px]"></i></a>
-                <a class="text-white hover:text-secondary transition-colors" href="{{ social.get('envelope', '#') }}"><i class="fa-solid fa-envelope text-[28px]"></i></a>
-            </div>
-        </div>
-    </aside>
-    <main class="w-full lg:w-[70%] flex flex-col min-w-0 gap-10 lg:px-16 lg:pb-16 px-6 pb-6 pt-6 lg:pt-[25px]">
-        <section class="flex flex-col gap-4 w-full mt-0 markdown-narrative">
-            {{ narrative_html }}
-        </section>
-        <section class="flex flex-col gap-8 w-full mt-0" id="academic">
-            <div class="flex items-center gap-4 border-b border-outline-variant pb-4">
-                <h2 class="font-headline-lg-mobile text-[24px] text-pure-white font-normal uppercase tracking-wider">Education</h2>
-            </div>
-            <div class="relative pl-6 border-l border-outline-variant ml-3 flex flex-col gap-12">
-                {% for edu in academic_list %}
-                <div class="relative">
-                    <div class="absolute -left-[28.5px] top-2 w-2 h-2 {% if loop.first %}bg-pure-white{% else %}border border-outline-variant bg-background{% endif %} rounded-full"></div>
-                    <div class="flex flex-col gap-1 w-full">
-                        <div class="flex flex-col sm:flex-row items-start justify-between w-full mb-1 gap-2 sm:gap-4">
-                            <div class="flex-1 pr-0 lg:pr-32">
-                                <h3 class="font-body-md text-pure-white font-bold text-lg mb-1">{{ edu.institution }}</h3>
-                                <p class="font-body-md text-medium-grey font-light text-[14px] text-justify leading-relaxed">{{ edu.description }}</p>
-                            </div>
-                            <span class="font-label-sm text-medium-grey uppercase tracking-widest sm:shrink-0 pt-1 text-[11px] sm:text-[12px]">{{ edu.period }}</span>
+                <div>
+                    <h2 class="font-label-sm text-label-sm text-pure-white tracking-widest mb-4">Tech Stack
+                    </h2>
+                    <div class="flex flex-wrap gap-5">
+                        {% for tech in tech_stack %}
+                        <div class="relative group w-8 h-8 flex items-center justify-center transform transition-transform hover:scale-110" title="{{ tech.name | title }}">
+                            {% if tech.svg_url_colored %}
+                            <img src="{{ tech.svg_url_plain }}" alt="{{ tech.name }}" class="absolute inset-0 w-full h-full object-contain transition-opacity duration-300 filter brightness-0 invert group-hover:opacity-0" onerror="this.src='{{ tech.svg_url_colored }}'">
+                            <img src="{{ tech.svg_url_colored }}" alt="{{ tech.name }}" class="absolute inset-0 w-full h-full object-contain transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                            {% else %}
+                            <i class="{{ tech.class }} text-2xl text-white transition-opacity duration-300"></i>
+                            {% endif %}
                         </div>
+                        {% endfor %}
                     </div>
                 </div>
-                {% endfor %}
+                <a class="inline-flex items-center justify-center border border-pure-white px-6 py-3 font-label-sm text-label-sm text-pure-white uppercase tracking-widest ghost-hover w-max mt-4 {% if not social.get('cv') or social.get('cv') == '#' %}pointer-events-none opacity-50 cursor-not-allowed{% endif %}"
+                    href="{{ social.get('cv', '#') }}" {% if social.get('cv') and social.get('cv') != '#' %}onclick="openCvModal(event)"{% else %}target="_blank"{% endif %}>View CV</a>
+                <nav class="hidden lg:flex flex-col gap-4 mt-8">
+                    <a class="font-label-sm text-label-sm uppercase tracking-widest flex items-center gap-4 ghost-hover p-2 -ml-2 w-max transition-colors text-medium-grey hover:text-accent"
+                        href="#academic">
+                        <span class="material-symbols-outlined text-[16px]">school</span> Education
+                    </a>
+                    <a class="font-label-sm text-label-sm uppercase tracking-widest flex items-center gap-4 ghost-hover p-2 -ml-2 w-max transition-colors hover:text-accent text-medium-grey"
+                        href="#experience">
+                        <span class="material-symbols-outlined text-[16px]">work</span> Experiences
+                    </a>
+                    <a class="font-label-sm text-label-sm uppercase tracking-widest flex items-center gap-4 ghost-hover p-2 -ml-2 w-max transition-colors hover:text-accent text-medium-grey"
+                        href="#projects">
+                        <span class="material-symbols-outlined text-[16px]">grid_view</span> Highlighted Projects
+                    </a>
+                </nav>
             </div>
-        </section>
-        <section class="flex flex-col gap-8 w-full" id="experience">
-            <div class="flex items-center gap-4 border-b border-outline-variant pb-4">
-                <h2 class="font-headline-lg-mobile text-[24px] text-pure-white font-normal uppercase tracking-wider">Experiences</h2>
+            <div class="flex flex-col gap-6 mt-12 lg:mt-0">
+                <div class="flex border-t border-outline-variant pt-6 gap-8">
+                    <a class="text-white hover:text-[#0A66C2] transition-colors"
+                        href="{{ social.get('linkedin', '#') }}" target="_blank"><i
+                            class="fa-brands fa-linkedin-in text-[28px]"></i></a>
+                    <a class="text-white hover:text-[#E4405F] transition-colors"
+                        href="{{ social.get('instagram', '#') }}" target="_blank"><i
+                            class="fa-brands fa-instagram text-[28px]"></i></a>
+                    <a class="text-white hover:text-gray-400 transition-colors" href="{{ social.get('github', '#') }}"
+                        target="_blank"><i class="fa-brands fa-github text-[28px]"></i></a>
+                    <a class="text-white group transition-colors" href="{{ social.get('envelope', '#') }}"><svg
+                            xmlns="http://www.w3.org/2000/svg" fill="none" width="28px" height="28px"
+                            viewBox="0 0 600 600">
+                            <g clip-path="url(#devicon-google-gmail-1-a)">
+                                <path
+                                    class="fill-current opacity-50 group-hover:fill-[#4285F4] group-hover:opacity-100 transition-all duration-300"
+                                    d="M136.4 525V293.3l-72-65.7L0 191v293a41 41 0 0 0 41 41z" />
+                                <path
+                                    class="fill-current opacity-50 group-hover:fill-[#34A853] group-hover:opacity-100 transition-all duration-300"
+                                    d="M463.6 525h95.5a41 41 0 0 0 40.9-40.9V191l-73 41.8-63.4 60.4z" />
+                                <path
+                                    class="fill-current opacity-100 group-hover:fill-[#EA4335] group-hover:opacity-100 transition-all duration-300"
+                                    d="m136.4 293.2-9.8-90.5 9.8-86.7L300 238.7 463.6 116l11 82-11 95.2L300 416z" />
+                                <path
+                                    class="fill-current opacity-75 group-hover:fill-[#FBBC04] group-hover:opacity-100 transition-all duration-300"
+                                    d="M463.6 116v177.2L600 191v-54.6a61.4 61.4 0 0 0-98.2-49z" />
+                                <path
+                                    class="fill-current opacity-85 group-hover:fill-[#C5221F] group-hover:opacity-100 transition-all duration-300"
+                                    d="m0 191 62.7 47 73.7 55.2V116L98.2 87.3A61.4 61.4 0 0 0 0 136.4z" />
+                            </g>
+                            <defs>
+                                <clipPath id="devicon-google-gmail-1-a">
+                                    <path fill="#fff" d="M0 0h600v600H0z" />
+                                </clipPath>
+                            </defs>
+                        </svg></a>
+                </div>
             </div>
-            <div class="relative pl-6 border-l border-outline-variant ml-3 flex flex-col gap-12">
-                {% for exp in experience_list %}
-                <div class="relative">
-                    <div class="absolute -left-[28.5px] top-2 w-2 h-2 border border-outline-variant bg-background rounded-full hover:bg-pure-white transition-colors duration-300"></div>
-                    <div class="flex flex-col gap-1 w-full">
-                        <div class="flex flex-col sm:flex-row items-start justify-between w-full mb-1 gap-2 sm:gap-4">
-                            <div class="flex-1 pr-0 lg:pr-32">
-                                <h3 class="font-body-md text-pure-white font-bold text-lg">{{ exp.role }}</h3>
-                                <p class="font-body-md text-pure-white font-normal mb-1">{{ exp.company }}</p>
-                                <p class="font-body-md text-medium-grey font-light text-[14px] text-justify leading-relaxed">{{ exp.description }}</p>
+        </aside>
+        <main class="w-full lg:w-[70%] flex flex-col min-w-0 gap-10 lg:px-16 lg:pb-16 px-6 pb-6 pt-6 lg:pt-[25px]">
+            <section class="flex flex-col gap-4 w-full mt-0 markdown-narrative">
+                {{ narrative_html }}
+            </section>
+            <section class="flex flex-col gap-8 w-full mt-0" id="academic">
+                <div class="flex items-center gap-4 border-b border-outline-variant pb-4">
+                    <h2 class="font-headline-lg-mobile text-[24px] text-pure-white font-normal tracking-wider">
+                        Education</h2>
+                </div>
+                <div class="flex flex-col gap-12 ml-3">
+                    {% for edu in academic_list %}
+                    <div class="flex gap-6 group">
+                        <div class="flex flex-col items-center w-2 shrink-0">
+                            <div
+                                class="w-2 h-2 shrink-0 border border-outline-variant bg-background rounded-full mt-2.5 z-10 relative">
                             </div>
-                            <span class="font-label-sm text-medium-grey uppercase tracking-widest sm:shrink-0 pt-1 text-[11px] sm:text-[12px]">{{ exp.period }}</span>
+                            {% if not loop.last %}
+                            <div class="w-px flex-1 bg-outline-variant -mb-[3.625rem] z-0"></div>
+                            {% endif %}
+                        </div>
+                        <div class="flex flex-col gap-1 w-full">
+                            <div
+                                class="flex flex-col sm:flex-row items-start justify-between w-full mb-1 gap-2 sm:gap-4">
+                                <div class="flex-1 pr-0 lg:pr-32">
+                                    <h3 class="font-body-md text-pure-white font-bold text-lg mb-1">{{ edu.institution
+                                        }}</h3>
+                                    <p
+                                        class="font-body-md text-medium-grey font-light text-[14px] text-justify leading-relaxed">
+                                        {{ edu.description }}</p>
+                                </div>
+                                <span
+                                    class="font-label-sm text-medium-grey tracking-widest sm:shrink-0 pt-1 text-[11px] sm:text-[12px]">{{
+                                    edu.period }}</span>
+                            </div>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
-            </div>
-        </section>
-        <section class="flex flex-col gap-8 w-[calc(100%+3rem)] lg:w-[calc(100%+8rem)] -ml-6 lg:-ml-16 overflow-hidden pb-12" id="projects">
-            <div class="flex items-center gap-4 border-b border-outline-variant pb-4 ml-6 lg:ml-16 mr-6 lg:mr-16">
-                <h2 class="font-headline-lg-mobile text-[24px] text-pure-white font-normal uppercase tracking-wider">Highlighted Projects</h2>
-            </div>
-            <div class="carousel-container no-scrollbar pt-4">
-                <div class="carousel-track">
-                    {% for project in projects %}
-                    <div class="w-[300px] shrink-0 border border-outline-variant bg-background p-8 flex flex-col gap-6 mr-6">
-                        <div class="flex flex-col justify-between h-full">
-                            <div>
-                                <h3 class="font-body-md text-body-md text-pure-white font-medium text-xl mb-2 underline-offset-4">{{ project.title }}</h3>
-                                <p class="font-label-sm text-label-sm text-medium-grey uppercase tracking-widest">{{ project.category }}</p>
+            </section>
+            <section class="flex flex-col gap-8 w-full" id="experience">
+                <div class="flex items-center gap-4 border-b border-outline-variant pb-4">
+                    <h2 class="font-headline-lg-mobile text-[24px] text-pure-white font-normal tracking-wider">
+                        Experiences</h2>
+                </div>
+                <div class="flex flex-col gap-12 ml-3">
+                    {% for exp in experience_list %}
+                    <div class="flex gap-6 group">
+                        <div class="flex flex-col items-center w-2 shrink-0">
+                            <div
+                                class="w-2 h-2 shrink-0 border border-outline-variant bg-background rounded-full mt-2.5 z-10 relative">
                             </div>
-                            <div class="flex justify-end mt-4">
-                                <a class="flex items-center gap-2 border border-outline-variant px-3 py-1.5 text-medium-grey hover:text-pure-white hover:border-pure-white transition-all duration-300 ease-in-out transform hover:-translate-y-1 bg-transparent" href="{{ project.link }}">
-                                    <span class="font-label-sm text-[10px] uppercase tracking-widest">View</span>
+                            {% if not loop.last %}
+                            <div class="w-px flex-1 bg-outline-variant -mb-[3.625rem] z-0"></div>
+                            {% endif %}
+                        </div>
+                        <div class="flex flex-col gap-1 w-full">
+                            <div
+                                class="flex flex-col sm:flex-row items-start justify-between w-full mb-1 gap-2 sm:gap-4">
+                                <div class="flex-1 pr-0 lg:pr-32">
+                                    <h3 class="font-body-md text-pure-white font-bold text-lg">{{ exp.role }}</h3>
+                                    <p class="font-body-md text-pure-white font-normal mb-1">{{ exp.company }}</p>
+                                    <p
+                                        class="font-body-md text-medium-grey font-light text-[14px] text-justify leading-relaxed">
+                                        {{ exp.description }}</p>
+                                </div>
+                                <span
+                                    class="font-label-sm text-medium-grey tracking-widest sm:shrink-0 pt-1 text-[11px] sm:text-[12px]">{{
+                                    exp.period }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+            <section
+                class="flex flex-col gap-8 w-[calc(100%+3rem)] lg:w-[calc(100%+8rem)] -ml-6 lg:-ml-16 overflow-hidden pb-12"
+                id="projects">
+                <div class="flex items-center gap-4 border-b border-outline-variant pb-4 ml-6 lg:ml-16 mr-6 lg:mr-16">
+                    <h2 class="font-headline-lg-mobile text-[24px] text-pure-white font-normal tracking-wider">
+                        Highlighted Projects</h2>
+                </div>
+                <div class="carousel-container no-scrollbar pt-4">
+                    <div class="carousel-track">
+                        {% for project in projects %}
+                        <div
+                            class="w-[300px] shrink-0 border border-outline-variant bg-background p-8 flex flex-col mr-6">
+                            <div class="flex flex-col gap-2">
+                                <h3
+                                    class="font-body-md text-pure-white font-medium text-xl mb-1 underline-offset-4 line-clamp-2">
+                                    {{ project.title }}</h3>
+                                <p class="font-label-sm text-medium-grey tracking-widest line-clamp-2">{{
+                                    project.category }}</p>
+                                {% if project.description %}
+                                <p
+                                    class="font-body-md text-medium-grey font-light text-[13px] leading-relaxed line-clamp-3 mt-2">
+                                    {{ project.description }}</p>
+                                {% endif %}
+                            </div>
+                            <div class="flex justify-end mt-auto gap-3 pt-6">
+                                {% if project.source %}
+                                <a class="flex items-center gap-2 border border-outline-variant px-3 py-1.5 text-medium-grey hover:text-accent hover:border-accent transition-all duration-300 ease-in-out transform hover:-translate-y-1 bg-transparent"
+                                    href="{{ project.source }}" target="_blank">
+                                    <span class="font-label-sm text-[10px] tracking-widest">Source</span>
+                                    <i class="fa-brands fa-github text-sm"></i>
+                                </a>
+                                {% endif %}
+                                {% if project.link and project.link != '#' %}
+                                <a class="flex items-center gap-2 border border-outline-variant px-3 py-1.5 text-medium-grey hover:text-accent hover:border-accent transition-all duration-300 ease-in-out transform hover:-translate-y-1 bg-transparent"
+                                    href="{{ project.link }}" target="_blank">
+                                    <span class="font-label-sm text-[10px] tracking-widest">View</span>
                                     <span class="material-symbols-outlined text-sm">north_east</span>
                                 </a>
+                                {% endif %}
                             </div>
                         </div>
-                    </div>
-                    {% endfor %}
-                    {% for project in projects %}
-                    <div aria-hidden="true" class="w-[300px] shrink-0 border border-outline-variant bg-background p-8 flex flex-col gap-6 mr-6">
-                        <div class="flex flex-col justify-between h-full">
-                            <div>
-                                <h3 class="font-body-md text-body-md text-pure-white font-medium text-xl mb-2 underline-offset-4">{{ project.title }}</h3>
-                                <p class="font-label-sm text-label-sm text-medium-grey uppercase tracking-widest">{{ project.category }}</p>
+                        {% endfor %}
+                        {% for project in projects %}
+                        <div aria-hidden="true"
+                            class="w-[300px] shrink-0 border border-outline-variant bg-background p-8 flex flex-col mr-6">
+                            <div class="flex flex-col gap-2">
+                                <h3
+                                    class="font-body-md text-pure-white font-medium text-xl mb-1 underline-offset-4 line-clamp-2">
+                                    {{ project.title }}</h3>
+                                <p class="font-label-sm text-medium-grey tracking-widest line-clamp-2">{{
+                                    project.category }}</p>
+                                {% if project.description %}
+                                <p
+                                    class="font-body-md text-medium-grey font-light text-[13px] leading-relaxed line-clamp-3 mt-2">
+                                    {{ project.description }}</p>
+                                {% endif %}
                             </div>
-                            <div class="flex justify-end mt-4">
-                                <a class="flex items-center gap-2 border border-outline-variant px-3 py-1.5 text-medium-grey hover:text-pure-white hover:border-pure-white transition-all duration-300 ease-in-out transform hover:-translate-y-1 bg-transparent" href="{{ project.link }}">
-                                    <span class="font-label-sm text-[10px] uppercase tracking-widest">View</span>
+                            <div class="flex justify-end mt-auto gap-3 pt-6">
+                                {% if project.source %}
+                                <a class="flex items-center gap-2 border border-outline-variant px-3 py-1.5 text-medium-grey hover:text-accent hover:border-accent transition-all duration-300 ease-in-out transform hover:-translate-y-1 bg-transparent"
+                                    href="{{ project.source }}" target="_blank">
+                                    <span class="font-label-sm text-[10px] tracking-widest">Source</span>
+                                    <i class="fa-brands fa-github text-sm"></i>
+                                </a>
+                                {% endif %}
+                                {% if project.link and project.link != '#' %}
+                                <a class="flex items-center gap-2 border border-outline-variant px-3 py-1.5 text-medium-grey hover:text-accent hover:border-accent transition-all duration-300 ease-in-out transform hover:-translate-y-1 bg-transparent"
+                                    href="{{ project.link }}" target="_blank">
+                                    <span class="font-label-sm text-[10px] tracking-widest">View</span>
                                     <span class="material-symbols-outlined text-sm">north_east</span>
                                 </a>
+                                {% endif %}
                             </div>
                         </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
                 </div>
-            </div>
-        </section>
-        <section class="flex flex-col gap-8 w-full" id="github-activity">
-            <div class="flex items-center justify-between border-b border-outline-variant pb-4">
-                <h2 class="font-headline-lg-mobile text-[24px] text-pure-white font-normal uppercase tracking-wider">Github Stats</h2>
-                <div class="flex items-center gap-4">
-                    <button class="chart-btn font-label-sm text-medium-grey uppercase tracking-widest hover:text-pure-white transition-colors pb-1" data-period="week">1 WEEK</button>
-                    <button class="chart-btn font-label-sm text-medium-grey uppercase tracking-widest hover:text-pure-white transition-colors pb-1" data-period="month">1 MONTH</button>
-                    <button class="chart-btn font-label-sm text-medium-grey uppercase tracking-widest hover:text-pure-white transition-colors pb-1 active" data-period="year">1 YEAR</button>
-                </div>
-            </div>
-            <div class="flex flex-col gap-6">
-                <div class="flex items-center gap-2">
-                    <span class="font-body-md text-pure-white font-bold text-lg" id="chart-count">{{ chart_context['year']['count'] }}</span>
-                    <span class="font-body-md text-medium-grey font-light text-[14px]" id="chart-desc">{{ chart_context['year']['desc'] }}</span>
-                </div>
-                <div class="w-full overflow-hidden no-scrollbar h-[200px] relative">
-                    <div class="absolute inset-0 flex flex-col justify-between pointer-events-none">
-                        <div class="w-full h-px bg-outline-variant opacity-50"></div>
-                        <div class="w-full h-px bg-outline-variant opacity-50"></div>
-                        <div class="w-full h-px bg-outline-variant opacity-50"></div>
-                        <div class="w-full h-px bg-outline-variant opacity-50"></div>
-                        <div class="w-full h-px bg-outline-variant opacity-50"></div>
+            </section>
+            <section class="flex flex-col gap-8 w-full" id="github-activity">
+                <div class="flex items-center justify-between border-b border-outline-variant pb-4">
+                    <h2 class="font-headline-lg-mobile text-[24px] text-pure-white font-normal tracking-wider">
+                        Github Stats</h2>
+                    <div class="flex items-center gap-4">
+                        <button
+                            class="chart-btn font-label-sm text-medium-grey tracking-widest hover:text-pure-white transition-colors pb-1"
+                            data-period="week">W</button>
+                        <button
+                            class="chart-btn font-label-sm text-medium-grey tracking-widest hover:text-pure-white transition-colors pb-1"
+                            data-period="month">M</button>
+                        <button
+                            class="chart-btn font-label-sm text-medium-grey tracking-widest hover:text-pure-white transition-colors pb-1 active"
+                            data-period="year">Y</button>
                     </div>
-                    <svg class="w-full h-full" id="chart-svg" preserveAspectRatio="none" viewBox="0 0 1000 200">
-                        <defs>
-                            <linearGradient id="chart-gradient" x1="0" x2="0" y1="0" y2="1">
-                                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.1"></stop>
-                                <stop offset="100%" stop-color="#ffffff" stop-opacity="0"></stop>
-                            </linearGradient>
-                        </defs>
-                        <g id="chart-elements">
-                            <polygon fill="url(#chart-gradient)" points="{{ chart_context['year']['poly'] }}"></polygon>
-                            <polyline fill="none" points="{{ chart_context['year']['line'] }}" stroke="#ffffff" stroke-width="2" vector-effect="non-scaling-stroke"></polyline>
-                            {% for pt in chart_context['year']['points'] %}
-                            <circle cx="{{ pt[0] }}" cy="{{ pt[1] }}" fill="#000" r="3" stroke="#fff" stroke-width="2"></circle>
-                            {% endfor %}
-                        </g>
-                    </svg>
                 </div>
-                <div class="flex justify-between items-center w-full" id="chart-labels">
-                    {% for label in chart_context['year']['labels'] %}
-                    <span class="font-label-sm text-medium-grey text-[10px] uppercase tracking-widest">{{ label }}</span>
-                    {% endfor %}
+                <div class="flex flex-col gap-6">
+                    <div class="flex items-center gap-2">
+                        <span class="font-body-md text-pure-white font-bold text-lg" id="chart-count">{{
+                            chart_context['year']['count'] }}</span>
+                        <span class="font-body-md text-medium-grey font-light text-[14px]" id="chart-desc">{{
+                            chart_context['year']['desc'] }}</span>
+                    </div>
+                    <div class="w-full overflow-hidden no-scrollbar h-[200px] relative">
+                        <div class="absolute inset-0 flex flex-col justify-between pointer-events-none">
+                            <div class="w-full h-px bg-outline-variant opacity-50"></div>
+                            <div class="w-full h-px bg-outline-variant opacity-50"></div>
+                            <div class="w-full h-px bg-outline-variant opacity-50"></div>
+                            <div class="w-full h-px bg-outline-variant opacity-50"></div>
+                            <div class="w-full h-px bg-outline-variant opacity-50"></div>
+                        </div>
+                        <svg class="w-full h-full" id="chart-svg" preserveAspectRatio="none" viewBox="0 0 1000 200">
+                            <defs>
+                                <linearGradient id="chart-gradient" x1="0" x2="0" y1="0" y2="1">
+                                    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.1"></stop>
+                                    <stop offset="100%" stop-color="#ffffff" stop-opacity="0"></stop>
+                                </linearGradient>
+                            </defs>
+                            <g id="chart-elements">
+                                <path fill="url(#chart-gradient)" d="{{ chart_context['year']['poly'] }}">
+                                </path>
+                                <path fill="none" d="{{ chart_context['year']['line'] }}" stroke="#ffffff"
+                                    stroke-width="2" vector-effect="non-scaling-stroke"></path>
+                            </g>
+                        </svg>
+                    </div>
+                    <div class="flex justify-between items-center w-full" id="chart-labels">
+                        {% for label in chart_context['year']['labels'] %}
+                        <span class="font-label-sm text-medium-grey text-[12px] tracking-widest">{{ label
+                            }}</span>
+                        {% endfor %}
+                    </div>
                 </div>
-            </div>
-        </section>
-        <footer class="w-full border-t border-outline-variant pt-8 mt-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-            <span class="font-label-sm text-label-sm text-medium-grey uppercase tracking-widest">© 2026. All Rights Reserved.</span>
-        </footer>
-    </main>
-</div>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const sections = document.querySelectorAll('main > section');
-        const navLinks = document.querySelectorAll('aside nav a');
-        if(navLinks.length === 0) return;
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.getAttribute('id');
-                    navLinks.forEach(link => {
-                        link.classList.remove('text-pure-white');
-                        link.classList.add('text-medium-grey');
-                    });
-                    const activeLink = document.querySelector(`aside nav a[href="#${id}"]`);
-                    if (activeLink) {
-                        activeLink.classList.remove('text-medium-grey');
-                        activeLink.classList.add('text-pure-white');
+            </section>
+            <footer
+                class="w-full border-t border-outline-variant pt-8 mt-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <span class="font-label-sm text-label-sm text-medium-grey tracking-widest">© 2026. All Rights
+                    Reserved.</span>
+            </footer>
+        </main>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('main > section');
+            const navLinks = document.querySelectorAll('aside nav a');
+            if (navLinks.length === 0) return;
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.remove('text-pure-white');
+                            link.classList.add('text-medium-grey');
+                        });
+                        const activeLink = document.querySelector(`aside nav a[href="#${id}"]`);
+                        if (activeLink) {
+                            activeLink.classList.remove('text-medium-grey');
+                            activeLink.classList.add('text-pure-white');
+                        }
                     }
-                }
-            });
-        }, { root: null, rootMargin: '0px', threshold: 0.3 });
-        sections.forEach(section => { if(section.id) observer.observe(section); });
-        const chartData = {
-            'week': {
-                poly: "{{ chart_context['week']['poly'] }}",
-                line: "{{ chart_context['week']['line'] }}",
-                points: {{ chart_context['week']['points'] | tojson }},
-                labels: {{ chart_context['week']['labels'] | tojson }},
-                count: "{{ chart_context['week']['count'] }}",
-                desc: "{{ chart_context['week']['desc'] }}"
+                });
+            }, { root: null, rootMargin: '0px', threshold: 0.3 });
+            sections.forEach(section => { if (section.id) observer.observe(section); });
+            const chartData = {
+                'week': {
+                    poly: "{{ chart_context['week']['poly'] }}",
+                    line: "{{ chart_context['week']['line'] }}",
+                    points: {{ chart_context['week']['points'] | tojson
+        }},
+            labels: {{ chart_context['week']['labels'] | tojson }},
+            count: "{{ chart_context['week']['count'] }}",
+            desc: "{{ chart_context['week']['desc'] }}"
             },
             'month': {
-                poly: "{{ chart_context['month']['poly'] }}",
-                line: "{{ chart_context['month']['line'] }}",
-                points: {{ chart_context['month']['points'] | tojson }},
-                labels: {{ chart_context['month']['labels'] | tojson }},
-                count: "{{ chart_context['month']['count'] }}",
-                desc: "{{ chart_context['month']['desc'] }}"
+            poly: "{{ chart_context['month']['poly'] }}",
+            line: "{{ chart_context['month']['line'] }}",
+            points: {{ chart_context['month']['points'] | tojson }},
+            labels: {{ chart_context['month']['labels'] | tojson }},
+            count: "{{ chart_context['month']['count'] }}",
+            desc: "{{ chart_context['month']['desc'] }}"
             },
             'year': {
-                poly: "{{ chart_context['year']['poly'] }}",
-                line: "{{ chart_context['year']['line'] }}",
-                points: {{ chart_context['year']['points'] | tojson }},
-                labels: {{ chart_context['year']['labels'] | tojson }},
-                count: "{{ chart_context['year']['count'] }}",
-                desc: "{{ chart_context['year']['desc'] }}"
+            poly: "{{ chart_context['year']['poly'] }}",
+            line: "{{ chart_context['year']['line'] }}",
+            points: {{ chart_context['year']['points'] | tojson }},
+            labels: {{ chart_context['year']['labels'] | tojson }},
+            count: "{{ chart_context['year']['count'] }}",
+            desc: "{{ chart_context['year']['desc'] }}"
             }
         };
         const chartBtns = document.querySelectorAll('.chart-btn');
@@ -332,17 +534,65 @@
                 const data = chartData[period];
                 chartCount.textContent = data.count;
                 chartDesc.textContent = data.desc;
-                let svgContent = `<polygon fill="url(#chart-gradient)" points="${data.poly}"></polygon>
-                                  <polyline fill="none" points="${data.line}" stroke="#ffffff" stroke-width="2" vector-effect="non-scaling-stroke"></polyline>`;
-                data.points.forEach(pt => {
-                    svgContent += `<circle cx="${pt[0]}" cy="${pt[1]}" fill="#000" r="3" stroke="#fff" stroke-width="2"></circle>`;
-                });
+                let svgContent = `<path fill="url(#chart-gradient)" d="${data.poly}"></path>
+                                  <path fill="none" d="${data.line}" stroke="#ffffff" stroke-width="2" vector-effect="non-scaling-stroke"></path>`;
                 chartElements.innerHTML = svgContent;
-                chartLabels.innerHTML = data.labels.map(label => 
-                    `<span class="font-label-sm text-medium-grey text-[10px] uppercase tracking-widest">${label}</span>`
+                chartLabels.innerHTML = data.labels.map(label =>
+                    `<span class="font-label-sm text-medium-grey text-[12px] uppercase tracking-widest">${label}</span>`
                 ).join('');
             });
         });
     });
-</script>
-</body></html>
+    </script>
+
+    {% if social.get('cv') and social.get('cv') != '#' %}
+    <script>
+    function openCvModal(e) {
+        if (e) e.preventDefault();
+        const iframe = document.getElementById('cv-iframe');
+        // Lazy load the PDF to prevent page lag on initial load
+        if (iframe && !iframe.getAttribute('src')) {
+            iframe.setAttribute('src', iframe.getAttribute('data-src'));
+        }
+        document.getElementById('cv-modal').classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+    function closeCvModal() {
+        document.getElementById('cv-modal').classList.add('hidden');
+        document.body.style.overflow = '';
+    }
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const modal = document.getElementById('cv-modal');
+            if (modal && !modal.classList.contains('hidden')) {
+                closeCvModal();
+            }
+        }
+    });
+    </script>
+    
+    <!-- CV Modal -->
+    <div id="cv-modal" class="fixed inset-0 z-[100] hidden bg-black/90 flex items-center justify-center p-4 md:py-0 md:px-10 backdrop-blur-sm transition-opacity">
+        <div class="bg-background border-x border-outline-variant w-full max-w-6xl h-full flex flex-col relative shadow-2xl">
+            <div class="flex justify-between items-center p-4 border-b border-outline-variant bg-[#111]">
+                <h3 class="font-body-md text-pure-white text-lg tracking-wider">Curriculum Vitae</h3>
+                <div class="flex items-center gap-4">
+                    <a href="{{ social.get('cv', '#') }}" download class="text-medium-grey hover:text-accent transition-colors flex items-center gap-2" title="Download directly">
+                        <span class="material-symbols-outlined text-[20px]">download</span>
+                        <span class="font-label-sm text-[12px] uppercase tracking-widest hidden md:inline">Download</span>
+                    </a>
+                    <button onclick="closeCvModal()" class="text-medium-grey hover:text-[#E4405F] transition-colors ml-4 flex items-center">
+                        <span class="material-symbols-outlined text-[24px]">close</span>
+                    </button>
+                </div>
+            </div>
+            <div class="flex-1 w-full h-full bg-[#333]">
+                <iframe id="cv-iframe" data-src="{{ social.get('cv', '#') }}" src="" class="w-full h-full border-none" title="CV PDF Viewer"></iframe>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</body>
+
+</html>

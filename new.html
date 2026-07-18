@@ -1,0 +1,124 @@
+<head>
+    <style>
+        body {
+            background-color: #1c1c1c;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<svg viewBox="-100 -120 200 320" width="400" height="600" xmlns="http://www.w3.org/2000/svg">
+    <!-- Back Arm -->
+    <g transform="translate(-5, -5)">
+        <path d="M 0 0 L -2 40" stroke="#222" stroke-width="12" stroke-linecap="round"/>
+        <path d="M -2 40 L 0 75" stroke="#222" stroke-width="10" stroke-linecap="round"/>
+        <circle cx="0" cy="75" r="4" fill="#888"/>
+    </g>
+
+    <!-- Back Leg -->
+    <g transform="translate(-5, 75)">
+        <path d="M 0 0 L -2 55" stroke="#111" stroke-width="18" stroke-linecap="round"/>
+        <path d="M -2 55 L 0 110" stroke="#111" stroke-width="14" stroke-linecap="round"/>
+        <g transform="translate(0, 110)">
+            <!-- Jordan 1 Silhouette (Back) -->
+            <path d="M -15 -15 L 5 -15 L 15 5 C 25 5, 28 12, 25 18 L -15 18 C -20 18, -20 -15, -15 -15 Z" fill="#999"/>
+            <path d="M -12 -12 L -2 -12 L -5 -5 L -15 -5 Z" fill="#666"/>
+            <!-- Swoosh -->
+            <path d="M -5 0 Q 2 8 12 0 Q 5 10 -5 5 Z" fill="#333"/>
+            <!-- Sole -->
+            <path d="M -16 12 L 26 12" stroke="#666" stroke-width="2"/>
+            <path d="M -16 18 L 24 18" stroke="#555" stroke-width="2"/>
+        </g>
+    </g>
+
+    <!-- Torso (Trench Coat) -->
+    <g>
+        <path d="M -15 -10 C -15 -25, 15 -25, 15 -10 C 20 20, 25 50, 25 80 C 15 85, -15 85, -25 80 C -25 50, -20 20, -15 -10 Z" fill="#333"/>
+        <path d="M 5 -10 C 8 20, 10 50, 8 82" stroke="#555" stroke-width="3" fill="none"/>
+        <path d="M -15 -10 L 0 15 L 15 -10" stroke="#555" stroke-width="4" fill="none" stroke-linejoin="round"/>
+    </g>
+
+    <!-- Head -->
+    <g transform="translate(0, -45)">
+        <!-- Neck -->
+        <path d="M -6 20 Q 0 20 6 20 Q 8 30 6 40 Q 0 42 -6 40 Q -8 30 -6 20 Z" fill="#888"/>
+        
+        <!-- Back Hair (Behind Face) - Neck length and sharp at the bottom -->
+        <path d="M 0 -25 
+                 C -20 -50, -45 -30, -40 5 
+                 L -25 20 
+                 L -35 30 
+                 L -20 35 
+                 L -30 45 
+                 L -10 40 
+                 C -5 40, 0 30, 0 20 Z" fill="#151515"/>
+                 
+        <!-- Very subtle hair lines matching the flow -->
+        <path d="M -15 -30 Q -30 -10 -25 15 T -20 35" stroke="#2a2a2a" stroke-width="1.5" fill="none"/>
+
+        <!-- Organic Face Profile (Lowered skull top so it doesn't poke through hair) -->
+        <path d="M 0 -20 
+                 C 5 -35, 15 -30, 20 -20 
+                 L 22 -10 
+                 L 28 -4 
+                 L 24 0 
+                 L 26 5 
+                 L 23 9 
+                 L 25 14 
+                 C 20 25, 5 28, -5 25 
+                 L -15 15 Z" fill="#ccc"/>
+
+        <!-- Front Hair (Voluminous Swept Back, ending in sharp points) -->
+        <path d="M -15 -25 
+                 C -15 -50, 15 -55, 26 -20 
+                 C 28 -5, 15 0, -15 5 
+                 L -5 -8 
+                 C -5 -15, -20 -20, -20 -20 Z" fill="#151515"/>
+        <path d="M 0 -42 C 15 -45, 24 -30, 25 -20" stroke="#2a2a2a" stroke-width="1.5" fill="none"/>
+
+        <!-- Eye -->
+        <path d="M 8 -10 L 14 -10" stroke="#000" stroke-width="2" stroke-linecap="round"/>
+        <!-- Eyebrow -->
+        <path d="M 6 -15 L 16 -16" stroke="#000" stroke-width="3" stroke-linecap="round"/>
+        
+        <!-- Ear -->
+        <circle cx="-5" cy="-2" r="4.5" fill="#aaa"/>
+
+        <!-- Cigarette -->
+        <line x1="23" y1="9" x2="38" y2="12" stroke="#fff" stroke-width="2.5"/>
+        <circle cx="39" cy="12.2" r="1.5" fill="#888"/>
+        
+        <!-- Smoke (Clean curves) -->
+        <path d="M 39 10 Q 45 -5 35 -15 T 41 -30" stroke="#aaa" stroke-width="1.5" fill="none" opacity="0.7"/>
+        <path d="M 39 10 Q 33 -5 41 -15 T 35 -30" stroke="#777" stroke-width="1" fill="none" opacity="0.4"/>
+    </g>
+
+    <!-- Front Leg -->
+    <g transform="translate(5, 75)">
+        <path d="M 0 0 L 2 55" stroke="#444" stroke-width="20" stroke-linecap="round"/>
+        <path d="M 2 55 L 0 110" stroke="#444" stroke-width="16" stroke-linecap="round"/>
+        <g transform="translate(0, 110)">
+            <!-- Jordan 1 Silhouette (Front) -->
+            <path d="M -15 -15 L 5 -15 L 15 5 C 25 5, 28 12, 25 18 L -15 18 C -20 18, -20 -15, -15 -15 Z" fill="#eee"/>
+            <!-- Color blocking details -->
+            <path d="M -15 -15 L -5 -15 L -5 5 L -15 5 Z" fill="#ccc"/>
+            <path d="M 5 -15 L 12 0 L 25 5 L 20 12 L 0 12 Z" fill="#ddd"/>
+            <!-- Collar Flap -->
+            <path d="M -12 -12 L -2 -12 L -5 -5 L -15 -5 Z" fill="#555"/>
+            <!-- Swoosh -->
+            <path d="M -5 0 Q 2 8 12 0 Q 5 10 -5 5 Z" fill="#111"/>
+            <!-- Sole -->
+            <path d="M -16 12 L 26 12" stroke="#aaa" stroke-width="2"/>
+            <path d="M -16 18 L 24 18" stroke="#888" stroke-width="2"/>
+        </g>
+    </g>
+
+    <!-- Front Arm -->
+    <g transform="translate(5, -5)">
+        <path d="M 0 0 L 4 45" stroke="#555" stroke-width="14" stroke-linecap="round"/>
+        <path d="M 4 45 L 8 85" stroke="#555" stroke-width="12" stroke-linecap="round"/>
+        <circle cx="8" cy="85" r="5" fill="#ccc"/>
+        <rect x="5" y="83" width="14" height="8" rx="2" fill="#111" transform="rotate(30 8 85)"/>
+    </g>
+</svg>
