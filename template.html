@@ -4,29 +4,37 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <link rel="icon" type="image/png" href="src/assets/icons/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="src/assets/icons/favicon.svg" />
-    <link rel="shortcut icon" href="src/assets/icons/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="src/assets/icons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" href="src/assets/icons/favicon-96x96-light.png" sizes="96x96"
+        media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/png" href="src/assets/icons/favicon-96x96-dark.png" sizes="96x96"
+        media="(prefers-color-scheme: dark)" />
+    <link rel="icon" type="image/svg+xml" href="src/assets/icons/favicon-light.svg"
+        media="(prefers-color-scheme: light)" />
+    <link rel="icon" type="image/svg+xml" href="src/assets/icons/favicon-dark.svg"
+        media="(prefers-color-scheme: dark)" />
+    <link rel="shortcut icon" href="src/assets/icons/favicon-light.ico" media="(prefers-color-scheme: light)" />
+    <link rel="shortcut icon" href="src/assets/icons/favicon-dark.ico" media="(prefers-color-scheme: dark)" />
+    <link rel="apple-touch-icon" sizes="180x180" href="src/assets/icons/apple-touch-icon-light.png"
+        media="(prefers-color-scheme: light)" />
+    <link rel="apple-touch-icon" sizes="180x180" href="src/assets/icons/apple-touch-icon-dark.png"
+        media="(prefers-color-scheme: dark)" />
     <meta name="apple-mobile-web-app-title" content="Zaky's Portofolio" />
     <link rel="manifest" href="src/assets/icons/site.webmanifest" />
     <title>{{ seo.title }}</title>
-    <meta name="description"
-        content="{{ seo.description }}">
+    <link rel="canonical" href="{{ seo.url }}" />
+    <meta name="description" content="{{ seo.description }}">
     <meta name="keywords"
         content="Zaky Islam Al Hafidz, Zaky, zaky, ZAKY, Zaky Islam, zaky islam, ZAKY ISLAM, zakyislm, zakyislam, islam zaky, Islam Zaky, ISLAM ZAKY, Zaky Al Hafidz, Zaky Hafidz, Portfolio, Portofolio, Informatics, Informatika, UPN Veteran Jakarta, Software Engineer, Backend, DevOps, Web Developer, Programmer">
     <meta name="author" content="{{ seo.author }}">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ seo.url }}">
     <meta property="og:title" content="{{ seo.title }}">
-    <meta property="og:description"
-        content="{{ seo.og_description }}">
+    <meta property="og:description" content="{{ seo.og_description }}">
     <meta property="og:image" content="{{ seo.og_image }}">
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="{{ seo.url }}">
     <meta property="twitter:title" content="{{ seo.title }}">
-    <meta property="twitter:description"
-        content="{{ seo.og_description }}">
+    <meta property="twitter:description" content="{{ seo.og_description }}">
     <meta property="twitter:image" content="{{ seo.og_image }}">
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
@@ -193,10 +201,14 @@
                     </h2>
                     <div class="flex flex-wrap gap-5">
                         {% for tech in tech_stack %}
-                        <div class="relative group w-8 h-8 flex items-center justify-center transform transition-transform hover:scale-110" title="{{ tech.name | title }}">
+                        <div class="relative group w-8 h-8 flex items-center justify-center transform transition-transform hover:scale-110"
+                            title="{{ tech.name | title }}">
                             {% if tech.svg_url_colored %}
-                            <img src="{{ tech.svg_url_plain }}" alt="{{ tech.name }}" class="absolute inset-0 w-full h-full object-contain transition-opacity duration-300 filter brightness-0 invert group-hover:opacity-0" onerror="this.src='{{ tech.svg_url_colored }}'">
-                            <img src="{{ tech.svg_url_colored }}" alt="{{ tech.name }}" class="absolute inset-0 w-full h-full object-contain transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+                            <img src="{{ tech.svg_url_plain }}" alt="{{ tech.name }}"
+                                class="absolute inset-0 w-full h-full object-contain transition-opacity duration-300 filter brightness-0 invert group-hover:opacity-0"
+                                onerror="this.src='{{ tech.svg_url_colored }}'">
+                            <img src="{{ tech.svg_url_colored }}" alt="{{ tech.name }}"
+                                class="absolute inset-0 w-full h-full object-contain transition-opacity duration-300 opacity-0 group-hover:opacity-100">
                             {% else %}
                             <i class="{{ tech.class }} text-2xl text-white transition-opacity duration-300"></i>
                             {% endif %}
@@ -205,7 +217,8 @@
                     </div>
                 </div>
                 <a class="inline-flex items-center justify-center border border-pure-white px-6 py-3 font-label-sm text-label-sm text-pure-white uppercase tracking-widest ghost-hover w-max mt-4 {% if not social.get('cv') or social.get('cv') == '#' %}pointer-events-none opacity-50 cursor-not-allowed{% endif %}"
-                    href="{{ social.get('cv', '#') }}" {% if social.get('cv') and social.get('cv') != '#' %}onclick="openCvModal(event)"{% else %}target="_blank"{% endif %}>View CV</a>
+                    href="{{ social.get('cv', '#') }}" {% if social.get('cv') and social.get('cv') !='#'
+                    %}onclick="openCvModal(event)" {% else %}target="_blank" {% endif %}>View CV</a>
                 <nav class="hidden lg:flex flex-col gap-4 mt-8">
                     <a class="font-label-sm text-label-sm uppercase tracking-widest flex items-center gap-4 ghost-hover p-2 -ml-2 w-max transition-colors text-medium-grey hover:text-accent"
                         href="#academic">
@@ -222,16 +235,16 @@
                 </nav>
             </div>
             <div class="flex flex-col gap-6 mt-12 lg:mt-0">
-                <div class="flex border-t border-outline-variant pt-6 gap-8">
+                <div class="flex items-center border-t border-outline-variant pt-6 gap-8 h-[28px] box-content">
                     <a class="text-white hover:text-[#0A66C2] transition-colors"
-                        href="{{ social.get('linkedin', '#') }}" target="_blank"><i
+                        href="{{ social.get('linkedin', '#') }}" target="_blank" aria-label="LinkedIn"><i
                             class="fa-brands fa-linkedin-in text-[28px]"></i></a>
                     <a class="text-white hover:text-[#E4405F] transition-colors"
-                        href="{{ social.get('instagram', '#') }}" target="_blank"><i
+                        href="{{ social.get('instagram', '#') }}" target="_blank" aria-label="Instagram"><i
                             class="fa-brands fa-instagram text-[28px]"></i></a>
                     <a class="text-white hover:text-gray-400 transition-colors" href="{{ social.get('github', '#') }}"
-                        target="_blank"><i class="fa-brands fa-github text-[28px]"></i></a>
-                    <a class="text-white group transition-colors" href="{{ social.get('envelope', '#') }}"><svg
+                        target="_blank" aria-label="GitHub"><i class="fa-brands fa-github text-[28px]"></i></a>
+                    <a class="text-white group transition-colors" href="{{ social.get('envelope', '#') }}" aria-label="Email"><svg
                             xmlns="http://www.w3.org/2000/svg" fill="none" width="28px" height="28px"
                             viewBox="0 0 600 600">
                             <g clip-path="url(#devicon-google-gmail-1-a)">
@@ -260,13 +273,13 @@
                 </div>
             </div>
         </aside>
-        <main class="w-full lg:w-[70%] flex flex-col min-w-0 gap-10 lg:px-16 lg:pb-16 px-6 pb-6 pt-6 lg:pt-[25px]">
+        <main class="w-full lg:w-[70%] flex flex-col min-w-0 gap-10 lg:px-16 lg:pb-10 px-6 pb-6 pt-6 lg:pt-[25px]">
             <section class="flex flex-col gap-4 w-full mt-0 markdown-narrative">
                 {{ narrative_html }}
             </section>
             <section class="flex flex-col gap-8 w-full mt-0" id="academic">
                 <div class="flex items-center gap-4 border-b border-outline-variant pb-4">
-                    <h2 class="font-headline-lg-mobile text-[24px] text-pure-white font-normal tracking-wider">
+                    <h2 class="font-headline-lg-mobile text-[24px] text-pure-white font-bold tracking-wider">
                         Education</h2>
                 </div>
                 <div class="flex flex-col gap-12 ml-3">
@@ -301,7 +314,7 @@
             </section>
             <section class="flex flex-col gap-8 w-full" id="experience">
                 <div class="flex items-center gap-4 border-b border-outline-variant pb-4">
-                    <h2 class="font-headline-lg-mobile text-[24px] text-pure-white font-normal tracking-wider">
+                    <h2 class="font-headline-lg-mobile text-[24px] text-pure-white font-bold tracking-wider">
                         Experiences</h2>
                 </div>
                 <div class="flex flex-col gap-12 ml-3">
@@ -338,7 +351,7 @@
                 class="flex flex-col gap-8 w-[calc(100%+3rem)] lg:w-[calc(100%+8rem)] -ml-6 lg:-ml-16 overflow-hidden pb-12"
                 id="projects">
                 <div class="flex items-center gap-4 border-b border-outline-variant pb-4 ml-6 lg:ml-16 mr-6 lg:mr-16">
-                    <h2 class="font-headline-lg-mobile text-[24px] text-pure-white font-normal tracking-wider">
+                    <h2 class="font-headline-lg-mobile text-[24px] text-pure-white font-bold tracking-wider">
                         Highlighted Projects</h2>
                 </div>
                 <div class="carousel-container no-scrollbar pt-4">
@@ -414,18 +427,18 @@
             </section>
             <section class="flex flex-col gap-8 w-full" id="github-activity">
                 <div class="flex items-center justify-between border-b border-outline-variant pb-4">
-                    <h2 class="font-headline-lg-mobile text-[24px] text-pure-white font-normal tracking-wider">
+                    <h2 class="font-headline-lg-mobile text-[24px] text-pure-white font-bold tracking-wider">
                         Github Stats</h2>
                     <div class="flex items-center gap-4">
                         <button
                             class="chart-btn font-label-sm text-medium-grey tracking-widest hover:text-pure-white transition-colors pb-1"
-                            data-period="week">W</button>
+                            data-period="week">Weekly</button>
                         <button
                             class="chart-btn font-label-sm text-medium-grey tracking-widest hover:text-pure-white transition-colors pb-1"
-                            data-period="month">M</button>
+                            data-period="month">Monthly</button>
                         <button
                             class="chart-btn font-label-sm text-medium-grey tracking-widest hover:text-pure-white transition-colors pb-1 active"
-                            data-period="year">Y</button>
+                            data-period="year">Year</button>
                     </div>
                 </div>
                 <div class="flex flex-col gap-6">
@@ -467,7 +480,7 @@
                 </div>
             </section>
             <footer
-                class="w-full border-t border-outline-variant pt-8 mt-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                class="w-full border-t border-outline-variant pt-6 mt-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-4 h-[28px] box-content">
                 <span class="font-label-sm text-label-sm text-medium-grey tracking-widest">© 2026. All Rights
                     Reserved.</span>
             </footer>
@@ -548,48 +561,55 @@
 
     {% if social.get('cv') and social.get('cv') != '#' %}
     <script>
-    function openCvModal(e) {
-        if (e) e.preventDefault();
-        const iframe = document.getElementById('cv-iframe');
-        // Lazy load the PDF to prevent page lag on initial load
-        if (iframe && !iframe.getAttribute('src')) {
-            iframe.setAttribute('src', iframe.getAttribute('data-src'));
-        }
-        document.getElementById('cv-modal').classList.remove('hidden');
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
-    }
-    function closeCvModal() {
-        document.getElementById('cv-modal').classList.add('hidden');
-        document.body.style.overflow = '';
-    }
-    
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            const modal = document.getElementById('cv-modal');
-            if (modal && !modal.classList.contains('hidden')) {
-                closeCvModal();
+        function openCvModal(e) {
+            if (e) e.preventDefault();
+            const iframe = document.getElementById('cv-iframe');
+            // Lazy load the PDF to prevent page lag on initial load
+            if (iframe && !iframe.getAttribute('src')) {
+                iframe.setAttribute('src', iframe.getAttribute('data-src'));
             }
+            document.getElementById('cv-modal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
         }
-    });
+        function closeCvModal() {
+            document.getElementById('cv-modal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                const modal = document.getElementById('cv-modal');
+                if (modal && !modal.classList.contains('hidden')) {
+                    closeCvModal();
+                }
+            }
+        });
     </script>
-    
+
     <!-- CV Modal -->
-    <div id="cv-modal" class="fixed inset-0 z-[100] hidden bg-black/90 flex items-center justify-center p-4 md:py-0 md:px-10 backdrop-blur-sm transition-opacity">
-        <div class="bg-background border-x border-outline-variant w-full max-w-6xl h-full flex flex-col relative shadow-2xl">
+    <div id="cv-modal"
+        class="fixed inset-0 z-[100] hidden bg-black/90 flex items-center justify-center p-4 md:py-0 md:px-10 backdrop-blur-sm transition-opacity">
+        <div
+            class="bg-background border-x border-outline-variant w-full max-w-6xl h-full flex flex-col relative shadow-2xl">
             <div class="flex justify-between items-center p-4 border-b border-outline-variant bg-[#111]">
                 <h3 class="font-body-md text-pure-white text-lg tracking-wider">Curriculum Vitae</h3>
                 <div class="flex items-center gap-4">
-                    <a href="{{ social.get('cv', '#') }}" download class="text-medium-grey hover:text-accent transition-colors flex items-center gap-2" title="Download directly">
+                    <a href="{{ social.get('cv', '#') }}" download
+                        class="text-medium-grey hover:text-accent transition-colors flex items-center gap-2"
+                        title="Download directly">
                         <span class="material-symbols-outlined text-[20px]">download</span>
-                        <span class="font-label-sm text-[12px] uppercase tracking-widest hidden md:inline">Download</span>
+                        <span
+                            class="font-label-sm text-[12px] uppercase tracking-widest hidden md:inline">Download</span>
                     </a>
-                    <button onclick="closeCvModal()" class="text-medium-grey hover:text-[#E4405F] transition-colors ml-4 flex items-center">
+                    <button onclick="closeCvModal()"
+                        class="text-medium-grey hover:text-[#E4405F] transition-colors ml-4 flex items-center">
                         <span class="material-symbols-outlined text-[24px]">close</span>
                     </button>
                 </div>
             </div>
             <div class="flex-1 w-full h-full bg-[#333]">
-                <iframe id="cv-iframe" data-src="{{ social.get('cv', '#') }}" src="" class="w-full h-full border-none" title="CV PDF Viewer"></iframe>
+                <iframe id="cv-iframe" data-src="{{ social.get('cv', '#') }}" src="" class="w-full h-full border-none"
+                    title="CV PDF Viewer"></iframe>
             </div>
         </div>
     </div>

@@ -35,22 +35,53 @@ Deeply passionate about exploring the intersections of software engineering, bac
   company: ITechno
   period: 2023 – 2024
   description: Led the programming division by designing engaging technical curricula and managing training sessions to foster a comfortable, adaptive environment where members can effectively develop their coding skills and talents.
+
 # Selected Projects
-- title: IDX Pipelines with Python
-  category: Data Cleaning
-  link: "https://github.com/zakyislm/idx-pipelines"
+- title: Jackionary - Medium'ish CMS
+  category: Web Development
+  source: "https://github.com/zakyislm/blogger"
+  link: "https://blog.zcdn.my.id"
+  description: Built a Medium’ish Content Management System, that built with Next.js, and use Markdown file to store data
+
+- title: Nofita's Portofolio
+  category: Web Development
+  source: "https://github.com/zakyislm/porto-nofita"
+  link: "https://nofita.netlify.app"
+  description: Built a Portofolio for my friend, that built with Next.js, and use Tailwind CSS
+
+- title: MotoInfy Store
+  category: E-Commerce Development
+  source: "https://github.com/zakyislm/uas-basdat-smt2"
+  link: "https://moto.infy.click"
+  description: Started as DataBase's course final project, built with PHP & MySQL, that sell motorcycle
+
+- title: Azara Landing Page Redesign
+  category: Web Development
+  link: "https://azara-web-redesign.vercel.app/"
+  source: "https://github.com/zakyislm/azara-web-redesign"
+  description: Redesign a Landing Page for Azara by using static site than semi-dynamic for easier maintenance that built with HTML, CSS, and Vanilla JS
+
+- title: Resha Eka Aulia's Portofolio
+  category: Web Development
+  source: "https://github.com/zakyislm/porto-ka-eca"
+  link: "https://imresha.vercel.app"
+  description: Built a Portofolio for my mentor, that built with Next.js, and use Tailwind CSS
 
 - title: Self-Service Simulation
   category: Web Development / PJBL Project
-  link: "https://github.com/zakyislm/selfservice"
+  link: "https://zakyislm.github.io/selfservice/"
+  source: "https://github.com/zakyislm/selfservice"
+  description: Built a Self-Service Simulation for my school, that built with HTML, CSS, and Vanilla JS
 
-- title: ITechno Website Archive
-  category: Frontend Engineer
-  link: "https://github.com/the-itechno/the-itechno.github.io"
+- title: Colorium - Palette & Tools
+  category: Web Development / Color Tools
+  link: "https://colorium.page"
+  description: A tool for color with some utility that built with Next.js and Tailwind CSS
 
-- title: Intisari CV Builder
-  category: Fullstack Assistan
-  link: "https://intisari.vercel.app"
+- title: Kiroku - Screenshot Attendance Assistance
+  category: Software Engineer
+  source: "https://github.com/zakyislm/kiroku"
+  description: Simple SS Assistance for your meetings that built with Java & custom LeaDS Scraper
 
 # Social Links
 - platform: linkedin

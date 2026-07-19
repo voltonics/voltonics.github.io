@@ -311,6 +311,7 @@ def build_portfolio():
         experience_list=data['experience'],
         social=data['social'],
         chart_context=chart_context,
+        projects=data.get('projects', []),
         seo=data.get('seo', {})
     )
     with open('docs/index.html', 'w', encoding='utf-8') as f:
