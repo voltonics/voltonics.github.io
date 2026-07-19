@@ -83,6 +83,12 @@ Deeply passionate about exploring the intersections of software engineering, bac
   source: "https://github.com/zakyislm/kiroku"
   description: Simple SS Assistance for your meetings that built with Java & custom LeaDS Scraper
 
+- title: Violations Checker
+  category: Web development
+  source: "https://github.com/zakyislm/uas-logmat-smt2"
+  link: "https://mathlogs.vercel.app"
+  description: Started as Math's course final project, built with PHP & MySQL, that count violations
+
 # Social Links
 - platform: linkedin
   link: https://linkedin.com/in/zakyislam
