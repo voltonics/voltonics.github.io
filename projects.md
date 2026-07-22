@@ -1,8 +1,8 @@
 # SEO Metadata
 author: Zaky Islam Al Hafidz
-description: Digital Portofolio of Zaky Islam Al Hafidz made with Python & Jinja2 dynamic portfolio generator that builds a clean, automated static developer profile. Fully deployed via GitHub Actions.
+description: Digital Portfolio of Zaky Islam Al Hafidz made with Python & Jinja2 dynamic portfolio generator that builds a clean, automated static developer profile. Fully deployed via GitHub Actions.
 url: https://zakyislm.github.io/
-title: Zaky Islam Al Hafidz - Portofolio
+title: Zaky Islam Al Hafidz - Portfolio
 og_description: Computer Engineer Student. Exploring software engineering, backend architecture, and scalable systems.
 og_image: https://gitrepoo.vercel.app/LnxZBrvHBhjfPhZG
 
@@ -34,20 +34,25 @@ Deeply passionate about exploring the intersections of software engineering, bac
 - role: Division Leader
   company: ITechno
   period: 2023 – 2024
-  description: Led the programming division by designing engaging technical curricula and managing training sessions to foster a comfortable, adaptive environment where members can effectively develop their coding skills and talents.
+  description: Led the programming division by designing engaging technical curricular and managing training sessions to foster a comfortable, adaptive environment where members can effectively develop their coding skills and talents.
 
 # Selected Projects
 - title: Jackionary - Medium'ish CMS
   category: Web Development
-  source: "https://github.com/zakyislm/blogger"
   link: "https://blog.zcdn.my.id"
   description: Built a Medium’ish Content Management System, that built with Next.js, and use Markdown file to store data
 
-- title: Nofita's Portofolio
+- title: Ibnu's Portfolio
+ category: Web Development
+ source: "https://github.com/zakyislm/porto-ibnu"
+ link: "https://ibnugaots.pages.dev"
+ description: Built a portfolio web for my friend, built with Next.js via cloudflare pages compatible.
+
+- title: Nofita's Portfolio
   category: Web Development
   source: "https://github.com/zakyislm/porto-nofita"
   link: "https://nofita.netlify.app"
-  description: Built a Portofolio for my friend, that built with Next.js, and use Tailwind CSS
+  description: Built a portfolio for my friend, that built with Next.js, and use Tailwind CSS
 
 - title: MotoInfy Store
   category: E-Commerce Development
@@ -61,11 +66,11 @@ Deeply passionate about exploring the intersections of software engineering, bac
   source: "https://github.com/zakyislm/azara-web-redesign"
   description: Redesign a Landing Page for Azara by using static site than semi-dynamic for easier maintenance that built with HTML, CSS, and Vanilla JS
 
-- title: Resha Eka Aulia's Portofolio
+- title: Resha Eka Aulia's Portfolio
   category: Web Development
   source: "https://github.com/zakyislm/porto-ka-eca"
   link: "https://imresha.vercel.app"
-  description: Built a Portofolio for my mentor, that built with Next.js, and use Tailwind CSS
+  description: Built a portfolio for my mentor, that built with Next.js, and use Tailwind CSS
 
 - title: Self-Service Simulation
   category: Web Development / PJBL Project
