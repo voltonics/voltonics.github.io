@@ -117,7 +117,9 @@
         .carousel-container {
             position: relative;
             width: 100%;
-            overflow: hidden;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-behavior: smooth;
             -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
             mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
         }
@@ -125,21 +127,6 @@
         .carousel-track {
             display: flex;
             width: max-content;
-            animation: scroll 25s linear infinite;
-        }
-
-        .carousel-track:hover {
-            animation-play-state: paused;
-        }
-
-        @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
         }
 
         .no-scrollbar::-webkit-scrollbar {
@@ -169,8 +156,8 @@
         }
 
         .chart-btn.active {
-            color: #0ea5e9;
-            border-color: #0ea5e9;
+            color: #ffffff;
+            border-color: #ffffff;
         }
 
         .markdown-narrative p {
@@ -355,7 +342,7 @@
                         Highlighted Projects</h2>
                 </div>
                 <div class="carousel-container no-scrollbar pt-4">
-                    <div class="carousel-track">
+                    <div class="carousel-track pl-6 lg:pl-16">
                         {% for project in projects %}
                         <div
                             class="w-[300px] shrink-0 border border-outline-variant bg-background p-8 flex flex-col mr-6">
@@ -373,17 +360,17 @@
                             </div>
                             <div class="flex justify-end mt-auto gap-3 pt-6">
                                 {% if project.source %}
-                                <a class="flex items-center gap-2 border border-outline-variant px-3 py-1.5 text-medium-grey hover:text-accent hover:border-accent transition-all duration-300 ease-in-out transform hover:-translate-y-1 bg-transparent"
+                                <a class="flex items-center gap-2 border border-outline-variant px-3 py-1.5 text-medium-grey ghost-hover transition-all duration-300 ease-in-out bg-transparent"
                                     href="{{ project.source }}" target="_blank">
-                                    <span class="font-label-sm text-[10px] tracking-widest">Source</span>
-                                    <i class="fa-brands fa-github text-sm"></i>
+                                    <span class="font-label-sm text-[10px] tracking-widest relative z-10">Source</span>
+                                    <i class="fa-brands fa-github text-sm relative z-10"></i>
                                 </a>
                                 {% endif %}
                                 {% if project.link and project.link != '#' %}
-                                <a class="flex items-center gap-2 border border-outline-variant px-3 py-1.5 text-medium-grey hover:text-accent hover:border-accent transition-all duration-300 ease-in-out transform hover:-translate-y-1 bg-transparent"
+                                <a class="flex items-center gap-2 border border-outline-variant px-3 py-1.5 text-medium-grey ghost-hover transition-all duration-300 ease-in-out bg-transparent"
                                     href="{{ project.link }}" target="_blank">
-                                    <span class="font-label-sm text-[10px] tracking-widest">View</span>
-                                    <span class="material-symbols-outlined text-sm">north_east</span>
+                                    <span class="font-label-sm text-[10px] tracking-widest relative z-10">View</span>
+                                    <span class="material-symbols-outlined text-sm relative z-10">north_east</span>
                                 </a>
                                 {% endif %}
                             </div>
@@ -406,22 +393,23 @@
                             </div>
                             <div class="flex justify-end mt-auto gap-3 pt-6">
                                 {% if project.source %}
-                                <a class="flex items-center gap-2 border border-outline-variant px-3 py-1.5 text-medium-grey hover:text-accent hover:border-accent transition-all duration-300 ease-in-out transform hover:-translate-y-1 bg-transparent"
+                                <a class="flex items-center gap-2 border border-outline-variant px-3 py-1.5 text-medium-grey ghost-hover transition-all duration-300 ease-in-out bg-transparent"
                                     href="{{ project.source }}" target="_blank">
-                                    <span class="font-label-sm text-[10px] tracking-widest">Source</span>
-                                    <i class="fa-brands fa-github text-sm"></i>
+                                    <span class="font-label-sm text-[10px] tracking-widest relative z-10">Source</span>
+                                    <i class="fa-brands fa-github text-sm relative z-10"></i>
                                 </a>
                                 {% endif %}
                                 {% if project.link and project.link != '#' %}
-                                <a class="flex items-center gap-2 border border-outline-variant px-3 py-1.5 text-medium-grey hover:text-accent hover:border-accent transition-all duration-300 ease-in-out transform hover:-translate-y-1 bg-transparent"
+                                <a class="flex items-center gap-2 border border-outline-variant px-3 py-1.5 text-medium-grey ghost-hover transition-all duration-300 ease-in-out bg-transparent"
                                     href="{{ project.link }}" target="_blank">
-                                    <span class="font-label-sm text-[10px] tracking-widest">View</span>
-                                    <span class="material-symbols-outlined text-sm">north_east</span>
+                                    <span class="font-label-sm text-[10px] tracking-widest relative z-10">View</span>
+                                    <span class="material-symbols-outlined text-sm relative z-10">north_east</span>
                                 </a>
                                 {% endif %}
                             </div>
                         </div>
                         {% endfor %}
+
                     </div>
                 </div>
             </section>
@@ -556,6 +544,52 @@
                 ).join('');
             });
         });
+
+        const carouselContainer = document.querySelector('.carousel-container');
+        if (carouselContainer) {
+            let isHovered = false;
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+            
+            carouselContainer.addEventListener('mouseenter', () => isHovered = true);
+            carouselContainer.addEventListener('mouseleave', () => { 
+                isHovered = false; 
+                isDown = false; 
+                carouselContainer.style.cursor = 'default';
+            });
+            carouselContainer.addEventListener('mousedown', (e) => { 
+                isDown = true; 
+                carouselContainer.style.cursor = 'grabbing';
+                startX = e.pageX - carouselContainer.offsetLeft;
+                scrollLeft = carouselContainer.scrollLeft;
+            });
+            carouselContainer.addEventListener('mouseup', () => { 
+                isDown = false; 
+                carouselContainer.style.cursor = 'default';
+            });
+            carouselContainer.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - carouselContainer.offsetLeft;
+                const walk = (x - startX) * 1.5;
+                carouselContainer.scrollLeft = scrollLeft - walk;
+            });
+            
+            carouselContainer.addEventListener('touchstart', () => isDown = true, {passive: true});
+            carouselContainer.addEventListener('touchend', () => isDown = false, {passive: true});
+
+            function autoScroll() {
+                if (!isHovered && !isDown) {
+                    carouselContainer.scrollLeft += 1;
+                    if (carouselContainer.scrollLeft >= (carouselContainer.scrollWidth / 2)) {
+                        carouselContainer.scrollLeft = 0;
+                    }
+                }
+                requestAnimationFrame(autoScroll);
+            }
+            requestAnimationFrame(autoScroll);
+        }
     });
     </script>
 

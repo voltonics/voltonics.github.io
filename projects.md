@@ -12,11 +12,12 @@ role: Computer Engineer Student
 slogan: I like building, creating, and solving problems with code.
 
 # Tech Stack
-- devicon-python-original
-- devicon-dart-original
-- devicon-html5-plain
-- devicon-cplusplus-plain
+- devicon-nextjs-original
+- devicon-tailwindcss-original
+- devicon-javascript-plain
+- devicon-java-original
 - devicon-postgresql-original
+- devicon-sqldeveloper-original
 
 # Personal Narrative
 Deeply passionate about exploring the intersections of software engineering, backend architecture, and scalable system design. The journey in Computer Engineering is driven by a relentless curiosity to understand complex technical challenges and craft elegant, efficient solutions. Thrives in environments that demand analytical thinking and creative problem-solving, consistently striving to push the boundaries of what is technically possible in system development and data-driven engineering.
@@ -70,13 +71,7 @@ Deeply passionate about exploring the intersections of software engineering, bac
   category: Web Development
   source: "https://github.com/zakyislm/porto-ka-eca"
   link: "https://imresha.vercel.app"
-  description: Built a portfolio for my mentor, that built with Next.js, and use Tailwind CSS
-
-- title: Self-Service Simulation
-  category: Web Development / PJBL Project
-  link: "https://zakyislm.github.io/selfservice/"
-  source: "https://github.com/zakyislm/selfservice"
-  description: Built a Self-Service Simulation for my school, that built with HTML, CSS, and Vanilla JS
+  description: Built a portfolio for my mentor, that built with Next.js, and use Tailwind CSS.
 
 - title: Colorium - Palette & Tools
   category: Web Development / Color Tools
