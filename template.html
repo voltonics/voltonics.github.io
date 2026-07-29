@@ -79,7 +79,7 @@
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Zaky Islam Al Hafidz",
-    "url": "https://zakyislm.github.io",
+    "url": "https://jeki.me",
     "jobTitle": "Computer Engineering Student",
     "sameAs": [
         "https://github.com/zakyislm",
@@ -231,9 +231,9 @@
                             class="fa-brands fa-instagram text-[28px]"></i></a>
                     <a class="text-white hover:text-gray-400 transition-colors" href="{{ social.get('github', '#') }}"
                         target="_blank" aria-label="GitHub"><i class="fa-brands fa-github text-[28px]"></i></a>
-                    <a class="text-white group transition-colors" href="{{ social.get('envelope', '#') }}" aria-label="Email"><svg
-                            xmlns="http://www.w3.org/2000/svg" fill="none" width="28px" height="28px"
-                            viewBox="0 0 600 600">
+                    <a class="text-white group transition-colors" href="{{ social.get('envelope', '#') }}"
+                        aria-label="Email"><svg xmlns="http://www.w3.org/2000/svg" fill="none" width="28px"
+                            height="28px" viewBox="0 0 600 600">
                             <g clip-path="url(#devicon-google-gmail-1-a)">
                                 <path
                                     class="fill-current opacity-50 group-hover:fill-[#4285F4] group-hover:opacity-100 transition-all duration-300"
@@ -551,21 +551,21 @@
             let isDown = false;
             let startX;
             let scrollLeft;
-            
+
             carouselContainer.addEventListener('mouseenter', () => isHovered = true);
-            carouselContainer.addEventListener('mouseleave', () => { 
-                isHovered = false; 
-                isDown = false; 
+            carouselContainer.addEventListener('mouseleave', () => {
+                isHovered = false;
+                isDown = false;
                 carouselContainer.style.cursor = 'default';
             });
-            carouselContainer.addEventListener('mousedown', (e) => { 
-                isDown = true; 
+            carouselContainer.addEventListener('mousedown', (e) => {
+                isDown = true;
                 carouselContainer.style.cursor = 'grabbing';
                 startX = e.pageX - carouselContainer.offsetLeft;
                 scrollLeft = carouselContainer.scrollLeft;
             });
-            carouselContainer.addEventListener('mouseup', () => { 
-                isDown = false; 
+            carouselContainer.addEventListener('mouseup', () => {
+                isDown = false;
                 carouselContainer.style.cursor = 'default';
             });
             carouselContainer.addEventListener('mousemove', (e) => {
@@ -575,9 +575,9 @@
                 const walk = (x - startX) * 1.5;
                 carouselContainer.scrollLeft = scrollLeft - walk;
             });
-            
-            carouselContainer.addEventListener('touchstart', () => isDown = true, {passive: true});
-            carouselContainer.addEventListener('touchend', () => isDown = false, {passive: true});
+
+            carouselContainer.addEventListener('touchstart', () => isDown = true, { passive: true });
+            carouselContainer.addEventListener('touchend', () => isDown = false, { passive: true });
 
             function autoScroll() {
                 if (!isHovered && !isDown) {
