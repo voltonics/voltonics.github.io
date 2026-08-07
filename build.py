@@ -263,7 +263,7 @@ def parse_content_markdown(filepath):
             if platform and link:
                 content_data['social'][platform.group(1).strip().lower()] = link.group(1).strip()
     return content_data
-def generate_sitemap(base_url="https://zakyislm.github.io"):
+def generate_sitemap(base_url="https://jeki.me"):
     # Sesuaikan base_url dengan alamat live website kamu
     sitemap_content = f"""<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -279,7 +279,7 @@ def generate_sitemap(base_url="https://zakyislm.github.io"):
         f.write(sitemap_content)
     print("Actions Log: Successfully generated sitemap.xml")
 
-def generate_robots_txt(base_url="https://zakyislm.github.io"):
+def generate_robots_txt(base_url="https://jeki.me"):
     robots_content = f"""User-agent: *
 Allow: /
 
