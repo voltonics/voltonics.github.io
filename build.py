@@ -327,8 +327,9 @@ def build_portfolio():
         print("Actions Log: Copied favicon assets to docs/src/assets/icons successfully.")
     else:
         print("Actions Log: Couldn't find src/assets/icons.")
-    # with open('docs/CNAME', 'w', encoding='utf-8') as f:
-    #     f.write('zakyislm.eu.org')
+    with open('docs/CNAME', 'w', encoding='utf-8') as f:
+        f.write('jeki.me')
+        print("Actions Log: Updated CNAME")
     # cname creations disabled until the domains are properly set up to avoid build failures due to domain issues.
     
     if os.path.exists('CV.pdf'):
