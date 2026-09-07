@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <meta name="description"
+        content="Digital Portfolio of Zaky Islam Al Hafidz made with Python & Jinja2 dynamic portfolio generator that builds a clean, automated static developer profile. Fully deployed via GitHub Actions.">
+    <meta name="keywords"
+        content="Zaky Islam Al Hafidz, Zaky, zaky, ZAKY, Zaky Islam, zaky islam, ZAKY ISLAM, zakyislm, zakyislam, islam zaky, Islam Zaky, ISLAM ZAKY, Zaky Al Hafidz, Zaky Hafidz, Portfolio, Portofolio, Informatics, Informatika, UPN Veteran Jakarta, Software Engineer, Backend, DevOps, Web Developer, Programmer">
+    <meta name="author" content="Zaky Islam Al Hafidz">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jeki.me">
+    <meta property="og:title" content="Zaky Islam Al Hafidz - Portfolio">
+    <meta property="og:description"
+        content="Computer Engineer Student. Exploring software engineering, backend architecture, and scalable systems.">
+    <meta property="og:image" content="https://gitrepoo.vercel.app/LnxZBrvHBhjfPhZG">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://jeki.me">
+    <meta property="twitter:title" content="Zaky Islam Al Hafidz - Portfolio">
+    <meta property="twitter:description"
+        content="Computer Engineer Student. Exploring software engineering, backend architecture, and scalable systems.">
+    <meta property="twitter:image" content="https://gitrepoo.vercel.app/LnxZBrvHBhjfPhZG">
+    <!-- CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind Config from Main Template -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "background": "#000000",
+                        "primary": "#ffffff",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .text-pure-white {
+            color: #ffffff !important;
+        }
+
+        .text-medium-grey {
+            color: #757575 !important;
+        }
+
+        /* SVG Character Animations */
+        .leg-front {
+            animation: walk-thigh 2s infinite linear;
+            transform-origin: 0px 0px;
+        }
+
+        .leg-back {
+            animation: walk-thigh 2s infinite linear;
+            animation-delay: -1s;
+            transform-origin: 0px 0px;
+        }
+
+        .lower-leg-front {
+            animation: walk-calf 2s infinite linear;
+            transform-origin: 0px 0px;
+        }
+
+        .lower-leg-back {
+            animation: walk-calf 2s infinite linear;
+            animation-delay: -1s;
+            transform-origin: 0px 0px;
+        }
+
+        .arm-front {
+            animation: walk-arm 2s infinite linear;
+            transform-origin: 0px 0px;
+        }
+
+        .arm-back {
+            animation: walk-arm 2s infinite linear;
+            animation-delay: -1s;
+            transform-origin: 0px 0px;
+        }
+
+        .lower-arm-front {
+            animation: walk-forearm 2s infinite linear;
+            transform-origin: 0px 0px;
+        }
+
+        .lower-arm-back {
+            animation: walk-forearm 2s infinite linear;
+            animation-delay: -1s;
+            transform-origin: 0px 0px;
+        }
+
+        .torso-bounce {
+            animation: walk-bounce 2s infinite linear;
+            transform-origin: 0px 75px;
+        }
+
+        .shoe-front {
+            animation: walk-shoe 2s infinite linear;
+            transform-origin: 0px 0px;
+        }
+
+        .shoe-back {
+            animation: walk-shoe 2s infinite linear;
+            animation-delay: -1s;
+            transform-origin: 0px 0px;
+        }
+
+        @keyframes walk-thigh {
+            0% {
+                transform: rotate(-45deg);
+                animation-timing-function: ease-in-out;
+            }
+            25% {
+                transform: rotate(-10deg);
+                animation-timing-function: ease-in-out;
+            }
+            37.5% {
+                transform: rotate(9deg);
+                animation-timing-function: ease-in-out;
+            }
+            50% {
+                transform: rotate(15deg);
+                animation-timing-function: ease-in-out;
+            }
+            75% {
+                transform: rotate(-45deg);
+                animation-timing-function: ease-in-out;
+            }
+            100% {
+                transform: rotate(-45deg);
+            }
+        }
+
+        @keyframes walk-calf {
+            0% {
+                transform: rotate(20deg);
+                animation-timing-function: ease-in-out;
+            }
+            25% {
+                transform: rotate(5deg);
+                animation-timing-function: ease-out;
+            }
+            31.25% {
+                transform: rotate(35deg);
+                animation-timing-function: ease-in;
+            }
+            37.5% {
+                transform: rotate(42deg);
+                animation-timing-function: ease-in-out;
+            }
+            50% {
+                transform: rotate(45deg);
+                animation-timing-function: ease-in-out;
+            }
+            75% {
+                transform: rotate(100deg);
+                animation-timing-function: ease-in-out;
+            }
+            100% {
+                transform: rotate(20deg);
+            }
+        }
+
+        @keyframes walk-arm {
+            0% {
+                transform: rotate(15deg);
+                animation-timing-function: ease-in;
+            }
+            25% {
+                transform: rotate(5deg);
+                animation-timing-function: ease-out;
+            }
+            50% {
+                transform: rotate(-5deg);
+                animation-timing-function: ease-in;
+            }
+            75% {
+                transform: rotate(5deg);
+                animation-timing-function: ease-out;
+            }
+            100% {
+                transform: rotate(15deg);
+            }
+        }
+
+        @keyframes walk-forearm {
+            0% {
+                transform: rotate(-10deg);
+            }
+
+            25% {
+                transform: rotate(-20deg);
+            }
+
+            50% {
+                transform: rotate(-35deg);
+            }
+
+            75% {
+                transform: rotate(-20deg);
+            }
+
+            100% {
+                transform: rotate(-10deg);
+            }
+        }
+
+        @keyframes walk-bounce {
+            0% {
+                transform: translateY(3px) rotate(2deg);
+                animation-timing-function: ease-out;
+            }
+            25% {
+                transform: translateY(-16px) rotate(0deg);
+                animation-timing-function: ease-in;
+            }
+            50% {
+                transform: translateY(3px) rotate(-1deg);
+                animation-timing-function: ease-out;
+            }
+            75% {
+                transform: translateY(-16px) rotate(0deg);
+                animation-timing-function: ease-in;
+            }
+            0% { transform: translateY(1px) rotate(2deg); animation-timing-function: ease-out; }
+            25% { transform: translateY(-16px) rotate(0deg); animation-timing-function: ease-in; }
+            50% { transform: translateY(1px) rotate(-1deg); animation-timing-function: ease-out; }
+            75% { transform: translateY(-16px) rotate(0deg); animation-timing-function: ease-in; }
+            100% { transform: translateY(1px) rotate(2deg); }
+        }
+
+        @keyframes walk-shoe {
+            0% { transform: rotate(15deg); animation-timing-function: ease-in-out; }
+            25% { transform: rotate(5deg); animation-timing-function: ease-out; }
+            31.25% { transform: rotate(-15deg); animation-timing-function: ease-in; }
+            37.5% { transform: rotate(8deg); animation-timing-function: ease-in-out; }
+            50% { transform: rotate(30deg); animation-timing-function: ease-in-out; }
+            75% { transform: rotate(-20deg); animation-timing-function: ease-in-out; }
+            100% { transform: rotate(15deg); }
+        }
+
+        @keyframes smoke-rise {
+            0% {
+                transform: translateY(0) scale(1) translateX(0);
+                opacity: 0.7;
+            }
+
+            100% {
+                transform: translateY(-15px) scale(1.2) translateX(5px);
+                opacity: 0;
+            }
+        }
+
+        .smoke-1 {
+            animation: smoke-rise 2s infinite ease-out;
+            transform-origin: 39px 10px;
+        }
+
+        .smoke-2 {
+            animation: smoke-rise 2.5s infinite ease-out 1s forwards;
+            transform-origin: 39px 10px;
+            opacity: 0;
+        }
+
+        .billboard-svg {
+            animation: slide-billboard 15s linear infinite;
+        }
+
+        @keyframes slide-billboard {
+            0% { transform: translateX(1500px); }
+            100% { transform: translateX(-1500px); }
+        }
+
+        /* Foreground overlay for depth */
+        .character-container {
+            z-index: 10;
+            position: absolute;
+            left: 20%;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+
+<body class="bg-background text-medium-grey min-h-screen relative selection:bg-pure-white selection:text-background">
+    <!-- Grid Background -->
+    <div class="fixed inset-0 z-0 opacity-10 pointer-events-none"
+        style="background-image: linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px); background-size: 40px 40px;">
+    </div>
+
+
+
+    <!-- Walking Character -->
+    <div class="character-container w-48 h-64 md:w-64 md:h-96">
+        <svg viewBox="-150 -120 300 350" class="w-full h-full drop-shadow-2xl" overflow="visible">
+            <!-- Background Billboard (Behind Ground Line) -->
+            <g class="billboard-svg">
+                <!-- Poles -->
+                <rect x="-200" y="-120" width="16" height="308" fill="#111" stroke="#222" stroke-width="2" />
+                <rect x="184" y="-120" width="16" height="308" fill="#111" stroke="#222" stroke-width="2" />
+                <!-- Board -->
+                <rect x="-300" y="-120" width="600" height="140" rx="8" fill="#151515" stroke="#2a2a2a" stroke-width="8" />
+                <!-- Text -->
+                <text x="0" y="-30" fill="#ddd" font-family="'Outfit', sans-serif" font-size="64" font-weight="800" text-anchor="middle">PAGE NOT FOUND</text>
+            </g>
+
+            <!-- Ground Line -->
+            <line x1="-2000" y1="188" x2="2000" y2="188" stroke="#333" stroke-width="4" />
+
+            <g class="torso-bounce">
+                <!-- Back Arm -->
+                <g transform="translate(-5, -5)">
+                    <g class="arm-back">
+                        <path d="M 0 0 L -2 40" stroke="#222" stroke-width="12" stroke-linecap="round" />
+                        <g transform="translate(-2, 40)">
+                            <g class="lower-arm-back">
+                                <path d="M 0 0 L 2 35" stroke="#222" stroke-width="10" stroke-linecap="round" />
+                                <circle cx="2" cy="35" r="4" fill="#888" />
+                            </g>
+                        </g>
+                    </g>
+                </g>
+
+                <!-- Back Leg -->
+                <g transform="translate(-5, 75)">
+                    <g class="leg-back">
+                        <path d="M 0 0 L -2 55" stroke="#111" stroke-width="18" stroke-linecap="round" />
+                        <g transform="translate(-2, 55)">
+                            <g class="lower-leg-back">
+                                <path d="M 0 0 L 2 55" stroke="#111" stroke-width="14" stroke-linecap="round" />
+                                <g transform="translate(2, 55)">
+                                    <g class="shoe-back">
+                                        <path
+                                            d="M -15 -15 L 5 -15 L 15 5 C 25 5, 28 12, 25 18 L -15 18 C -20 18, -20 -15, -15 -15 Z"
+                                            fill="#999" />
+                                        <path d="M -12 -12 L -2 -12 L -5 -5 L -15 -5 Z" fill="#666" />
+                                        <path d="M -5 0 Q 2 8 12 0 Q 5 10 -5 5 Z" fill="#333" />
+                                        <path d="M -16 12 L 26 12" stroke="#666" stroke-width="2" />
+                                        <path d="M -16 18 L 24 18" stroke="#555" stroke-width="2" />
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+
+                <!-- Torso (Trench Coat) -->
+                <g>
+                    <path
+                        d="M -15 -10 C -15 -25, 15 -25, 15 -10 C 20 20, 25 50, 25 80 C 15 85, -15 85, -25 80 C -25 50, -20 20, -15 -10 Z"
+                        fill="#333" />
+                    <path d="M 5 -10 C 8 20, 10 50, 8 82" stroke="#555" stroke-width="3" fill="none" />
+                    <path d="M -15 -10 L 0 15 L 15 -10" stroke="#555" stroke-width="4" fill="none"
+                        stroke-linejoin="round" />
+                </g>
+
+                <!-- Head -->
+                <g transform="translate(0, -45)">
+                    <!-- Neck -->
+                    <path d="M -6 20 Q 0 20 6 20 Q 8 30 6 40 Q 0 42 -6 40 Q -8 30 -6 20 Z" fill="#888" />
+
+                    <!-- Back Hair -->
+                    <path d="M 0 -25 
+                             C -20 -50, -45 -30, -40 5 
+                             L -25 20 
+                             L -35 30 
+                             L -20 35 
+                             L -30 45 
+                             L -10 40 
+                             C -5 40, 0 30, 0 20 Z" fill="#151515" />
+                    <path d="M -15 -30 Q -30 -10 -25 15 T -20 35" stroke="#2a2a2a" stroke-width="1.5" fill="none" />
+
+                    <!-- Face Profile -->
+                    <path d="M 0 -20 
+                             C 5 -35, 15 -30, 20 -20 
+                             L 22 -10 
+                             L 28 -4 
+                             L 24 0 
+                             L 26 5 
+                             L 23 9 
+                             L 25 14 
+                             C 20 25, 5 28, -5 25 
+                             L -15 15 Z" fill="#ccc" />
+
+                    <!-- Front Hair -->
+                    <path d="M -15 -25 
+                             C -15 -50, 15 -55, 26 -20 
+                             C 28 -5, 15 0, -15 5 
+                             L -5 -8 
+                             C -5 -15, -20 -20, -20 -20 Z" fill="#151515" />
+                    <path d="M 0 -42 C 15 -45, 24 -30, 25 -20" stroke="#2a2a2a" stroke-width="1.5" fill="none" />
+
+                    <!-- Eye & Details -->
+                    <path d="M 8 -10 L 14 -10" stroke="#000" stroke-width="2" stroke-linecap="round" />
+                    <path d="M 6 -15 L 16 -16" stroke="#000" stroke-width="3" stroke-linecap="round" />
+                    <circle cx="-5" cy="-2" r="4.5" fill="#aaa" />
+
+                    <!-- Cigarette & Smoke -->
+                    <line x1="23" y1="9" x2="38" y2="12" stroke="#fff" stroke-width="2.5" />
+                    <circle cx="39" cy="12.2" r="1.5" fill="#888" />
+                    <path class="smoke-1" d="M 39 10 Q 45 -5 35 -15 T 41 -30" stroke="#aaa" stroke-width="1.5"
+                        fill="none" />
+                    <path class="smoke-2" d="M 39 10 Q 33 -5 41 -15 T 35 -30" stroke="#777" stroke-width="1"
+                        fill="none" />
+                </g>
+
+                <!-- Front Leg -->
+                <g transform="translate(5, 75)">
+                    <g class="leg-front">
+                        <path d="M 0 0 L 2 55" stroke="#444" stroke-width="20" stroke-linecap="round" />
+                        <g transform="translate(2, 55)">
+                            <g class="lower-leg-front">
+                                <path d="M 0 0 L -2 55" stroke="#444" stroke-width="16" stroke-linecap="round" />
+                                <g transform="translate(-2, 55)">
+                                    <g class="shoe-front">
+                                        <path
+                                            d="M -15 -15 L 5 -15 L 15 5 C 25 5, 28 12, 25 18 L -15 18 C -20 18, -20 -15, -15 -15 Z"
+                                            fill="#eee" />
+                                        <path d="M -15 -15 L -5 -15 L -5 5 L -15 5 Z" fill="#ccc" />
+                                        <path d="M 5 -15 L 12 0 L 25 5 L 20 12 L 0 12 Z" fill="#ddd" />
+                                        <path d="M -12 -12 L -2 -12 L -5 -5 L -15 -5 Z" fill="#555" />
+                                        <path d="M -5 0 Q 2 8 12 0 Q 5 10 -5 5 Z" fill="#111" />
+                                        <path d="M -16 12 L 26 12" stroke="#aaa" stroke-width="2" />
+                                        <path d="M -16 18 L 24 18" stroke="#888" stroke-width="2" />
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+
+                <!-- Front Arm -->
+                <g transform="translate(5, -5)">
+                    <g class="arm-front">
+                        <path d="M 0 0 L 4 45" stroke="#555" stroke-width="14" stroke-linecap="round" />
+                        <g transform="translate(4, 45)">
+                            <g class="lower-arm-front">
+                                <path d="M 0 0 L 4 40" stroke="#555" stroke-width="12" stroke-linecap="round" />
+                                <circle cx="4" cy="40" r="5" fill="#ccc" />
+                                <rect x="1" y="38" width="14" height="8" rx="2" fill="#111"
+                                    transform="rotate(30 4 40)" />
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </svg>
+    </div>
+
+    <!-- Small static info text -->
+    <div class="absolute bottom-10 left-0 w-full text-center z-20">
+        <p class="font-label-sm text-medium-grey text-xs tracking-[0.2em] uppercase">Redirecting back to home module...
+        </p>
+    </div>
+    <script>
+        // Redirect to home after 8 seconds (when animation ends)
+        setTimeout(() => {
+            window.location.href = '/';
+        }, 8000);
+    </script>
+</body>
+
+</html>
